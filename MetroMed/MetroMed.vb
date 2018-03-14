@@ -552,9 +552,17 @@ Public Class MetroMed
     End Sub
 
     Public Sub ParseMednafenConfig()
+        Dim MednafenVersion As String
+
+        If File.Exists(MedPath & "\mednafen.cfg") Then
+            MednafenVersion = "mednafen"
+        ElseIf File.Exists(MedPath & "\mednafen-09x.cfg") Then
+            MednafenVersion = "mednafen-09x"
+        End If                         
+                                
         Dim row, splitrow() As String
         Try
-            Using reader As New StreamReader(MedPath & "\mednafen-09x.cfg")
+            Using reader As New StreamReader(MedPath & "\" & MednafenVersion & ".cfg")
                 While Not reader.EndOfStream
                     row = reader.ReadLine
                     splitrow = row.Split(" ")
