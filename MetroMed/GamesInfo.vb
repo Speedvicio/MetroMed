@@ -31,15 +31,15 @@ Module GamesInfo
                     Case "Platform"
                         'TheGamesDB.Label2.Text = "Platform: " & (reader.Value)
                     Case "ReleaseDate"
-                        Dim fdate As String
-                        If Len(reader.Value) = 10 Then fdate = reader.Value Else fdate = "0" & reader.Value
-                        If Len(reader.Value) = 4 Then
-                            'TheGamesDB.Label3.Text = "Release Date: " & (reader.Value)
-                        Else
-                            Dim expenddt As Date = Date.ParseExact(fdate, "MM/dd/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo).ToString
-                            'TheGamesDB.Label3.Text = "Release Date: " & (expenddt)
-                        End If
-                    Case "Overview"
+                        'Dim fdate As String
+                'If Len(reader.Value) = 10 Then fdate = reader.Value Else fdate = "0" & reader.Value
+                'If Len(reader.Value) = 4 Then
+                'TheGamesDB.Label3.Text = "Release Date: " & (reader.Value)
+                'Else
+                'Dim expenddt As Date = Date.ParseExact(fdate, "MM/dd/yyyy", System.Globalization.DateTimeFormatInfo.InvariantInfo).ToString
+                'TheGamesDB.Label3.Text = "Release Date: " & (expenddt)
+            'End If
+                    Case "Overview", "overview"
                         MetroMed.RichTextBox1.Text = (reader.Value).ToString
                     Case "genre"
                         'If Len(TheGamesDB.Label4.Text) <= 7 Then
@@ -114,4 +114,5 @@ Module GamesInfo
         Immagine.Dispose()
         Return bmp
     End Function
+
 End Module
