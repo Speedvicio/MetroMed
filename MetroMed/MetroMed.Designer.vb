@@ -88,7 +88,6 @@ Partial Class MetroMed
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.MetroButton17 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton16 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton13 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton8 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton7 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton6 = New MetroFramework.Controls.MetroButton()
@@ -101,6 +100,9 @@ Partial Class MetroMed
         Me.MetroButton12 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton14 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton15 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton13 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton10 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton9 = New MetroFramework.Controls.MetroButton()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -1012,25 +1014,26 @@ Partial Class MetroMed
         '
         Me.TableLayoutPanel2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MetroStyleExtender1.SetApplyMetroTheme(Me.TableLayoutPanel2, True)
-        Me.TableLayoutPanel2.ColumnCount = 15
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.666667!))
+        Me.TableLayoutPanel2.ColumnCount = 17
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.882353!))
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton17, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton16, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.MetroButton13, 14, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton8, 9, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton7, 8, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton6, 7, 0)
@@ -1043,6 +1046,9 @@ Partial Class MetroMed
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton12, 11, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton14, 12, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.MetroButton15, 13, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.MetroButton13, 16, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.MetroButton10, 15, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.MetroButton9, 14, 0)
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(299, 63)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
@@ -1055,7 +1061,7 @@ Partial Class MetroMed
         Me.MetroButton17.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton17.BackColor = System.Drawing.Color.Transparent
         Me.MetroButton17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton17.Location = New System.Drawing.Point(41, 3)
+        Me.MetroButton17.Location = New System.Drawing.Point(35, 3)
         Me.MetroButton17.Name = "MetroButton17"
         Me.MetroButton17.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton17.TabIndex = 16
@@ -1069,7 +1075,7 @@ Partial Class MetroMed
         Me.MetroButton16.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton16.BackColor = System.Drawing.Color.Transparent
         Me.MetroButton16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton16.Location = New System.Drawing.Point(5, 3)
+        Me.MetroButton16.Location = New System.Drawing.Point(3, 3)
         Me.MetroButton16.Name = "MetroButton16"
         Me.MetroButton16.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton16.TabIndex = 15
@@ -1078,23 +1084,11 @@ Partial Class MetroMed
         Me.MetroButton16.UseSelectable = True
         Me.MetroButton16.UseStyleColors = True
         '
-        'MetroButton13
-        '
-        Me.MetroButton13.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton13.Location = New System.Drawing.Point(512, 3)
-        Me.MetroButton13.Name = "MetroButton13"
-        Me.MetroButton13.Size = New System.Drawing.Size(26, 32)
-        Me.MetroButton13.TabIndex = 12
-        Me.MetroToolTip1.SetToolTip(Me.MetroButton13, "  Virtual Image  ")
-        Me.MetroButton13.UseSelectable = True
-        Me.MetroButton13.UseStyleColors = True
-        '
         'MetroButton8
         '
         Me.MetroButton8.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton8.Location = New System.Drawing.Point(329, 3)
+        Me.MetroButton8.Location = New System.Drawing.Point(291, 3)
         Me.MetroButton8.Name = "MetroButton8"
         Me.MetroButton8.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton8.TabIndex = 7
@@ -1106,7 +1100,7 @@ Partial Class MetroMed
         '
         Me.MetroButton7.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton7.Location = New System.Drawing.Point(293, 3)
+        Me.MetroButton7.Location = New System.Drawing.Point(259, 3)
         Me.MetroButton7.Name = "MetroButton7"
         Me.MetroButton7.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton7.TabIndex = 6
@@ -1118,7 +1112,7 @@ Partial Class MetroMed
         '
         Me.MetroButton6.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton6.Location = New System.Drawing.Point(257, 3)
+        Me.MetroButton6.Location = New System.Drawing.Point(227, 3)
         Me.MetroButton6.Name = "MetroButton6"
         Me.MetroButton6.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton6.TabIndex = 5
@@ -1130,7 +1124,7 @@ Partial Class MetroMed
         '
         Me.MetroButton5.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton5.Location = New System.Drawing.Point(221, 3)
+        Me.MetroButton5.Location = New System.Drawing.Point(195, 3)
         Me.MetroButton5.Name = "MetroButton5"
         Me.MetroButton5.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton5.TabIndex = 4
@@ -1142,7 +1136,7 @@ Partial Class MetroMed
         '
         Me.MetroButton4.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton4.Location = New System.Drawing.Point(185, 3)
+        Me.MetroButton4.Location = New System.Drawing.Point(163, 3)
         Me.MetroButton4.Name = "MetroButton4"
         Me.MetroButton4.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton4.TabIndex = 3
@@ -1154,7 +1148,7 @@ Partial Class MetroMed
         '
         Me.MetroButton3.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton3.Location = New System.Drawing.Point(149, 3)
+        Me.MetroButton3.Location = New System.Drawing.Point(131, 3)
         Me.MetroButton3.Name = "MetroButton3"
         Me.MetroButton3.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton3.TabIndex = 2
@@ -1166,7 +1160,7 @@ Partial Class MetroMed
         '
         Me.MetroButton2.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton2.Location = New System.Drawing.Point(113, 3)
+        Me.MetroButton2.Location = New System.Drawing.Point(99, 3)
         Me.MetroButton2.Name = "MetroButton2"
         Me.MetroButton2.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton2.TabIndex = 1
@@ -1179,7 +1173,7 @@ Partial Class MetroMed
         Me.MetroButton1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton1.BackColor = System.Drawing.Color.Transparent
         Me.MetroButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton1.Location = New System.Drawing.Point(77, 3)
+        Me.MetroButton1.Location = New System.Drawing.Point(67, 3)
         Me.MetroButton1.Name = "MetroButton1"
         Me.MetroButton1.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton1.TabIndex = 0
@@ -1192,7 +1186,7 @@ Partial Class MetroMed
         '
         Me.MetroButton11.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton11.Location = New System.Drawing.Point(365, 3)
+        Me.MetroButton11.Location = New System.Drawing.Point(323, 3)
         Me.MetroButton11.Name = "MetroButton11"
         Me.MetroButton11.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton11.TabIndex = 10
@@ -1204,7 +1198,7 @@ Partial Class MetroMed
         '
         Me.MetroButton12.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton12.Location = New System.Drawing.Point(401, 3)
+        Me.MetroButton12.Location = New System.Drawing.Point(355, 3)
         Me.MetroButton12.Name = "MetroButton12"
         Me.MetroButton12.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton12.TabIndex = 11
@@ -1216,7 +1210,7 @@ Partial Class MetroMed
         '
         Me.MetroButton14.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton14.Location = New System.Drawing.Point(437, 3)
+        Me.MetroButton14.Location = New System.Drawing.Point(387, 3)
         Me.MetroButton14.Name = "MetroButton14"
         Me.MetroButton14.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton14.TabIndex = 13
@@ -1228,13 +1222,49 @@ Partial Class MetroMed
         '
         Me.MetroButton15.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.MetroButton15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton15.Location = New System.Drawing.Point(471, 3)
+        Me.MetroButton15.Location = New System.Drawing.Point(419, 3)
         Me.MetroButton15.Name = "MetroButton15"
-        Me.MetroButton15.Size = New System.Drawing.Size(29, 32)
+        Me.MetroButton15.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton15.TabIndex = 14
         Me.MetroToolTip1.SetToolTip(Me.MetroButton15, "  Bandai Wonderswan - Color  ")
         Me.MetroButton15.UseSelectable = True
         Me.MetroButton15.UseStyleColors = True
+        '
+        'MetroButton13
+        '
+        Me.MetroButton13.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MetroButton13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.MetroButton13.Location = New System.Drawing.Point(516, 3)
+        Me.MetroButton13.Name = "MetroButton13"
+        Me.MetroButton13.Size = New System.Drawing.Size(26, 32)
+        Me.MetroButton13.TabIndex = 12
+        Me.MetroToolTip1.SetToolTip(Me.MetroButton13, "  Virtual Image  ")
+        Me.MetroButton13.UseSelectable = True
+        Me.MetroButton13.UseStyleColors = True
+        '
+        'MetroButton10
+        '
+        Me.MetroButton10.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MetroButton10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.MetroButton10.Location = New System.Drawing.Point(483, 3)
+        Me.MetroButton10.Name = "MetroButton10"
+        Me.MetroButton10.Size = New System.Drawing.Size(26, 32)
+        Me.MetroButton10.TabIndex = 18
+        Me.MetroToolTip1.SetToolTip(Me.MetroButton10, "Sega - Saturn")
+        Me.MetroButton10.UseSelectable = True
+        Me.MetroButton10.UseStyleColors = True
+        '
+        'MetroButton9
+        '
+        Me.MetroButton9.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MetroButton9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.MetroButton9.Location = New System.Drawing.Point(451, 3)
+        Me.MetroButton9.Name = "MetroButton9"
+        Me.MetroButton9.Size = New System.Drawing.Size(26, 32)
+        Me.MetroButton9.TabIndex = 17
+        Me.MetroToolTip1.SetToolTip(Me.MetroButton9, "Sony PlayStation")
+        Me.MetroButton9.UseSelectable = True
+        Me.MetroButton9.UseStyleColors = True
         '
         'TableLayoutPanel3
         '
@@ -1341,7 +1371,7 @@ Partial Class MetroMed
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MetroMed"
-        Me.Tag = "Beta 08"
+        Me.Tag = "Beta 09"
         Me.Text = "MetroMed"
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -1451,4 +1481,6 @@ Partial Class MetroMed
     Friend WithEvents mPort As ToolStripTextBox
     Friend WithEvents ToolStripSeparator3 As ToolStripSeparator
     Friend WithEvents mInput As ToolStripMenuItem
+    Friend WithEvents MetroButton10 As MetroFramework.Controls.MetroButton
+    Friend WithEvents MetroButton9 As MetroFramework.Controls.MetroButton
 End Class

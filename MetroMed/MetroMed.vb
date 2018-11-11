@@ -4,15 +4,18 @@ Imports System.Runtime.InteropServices
 Imports MetroFramework
 
 Public Class MetroMed
+
     <DllImport("user32")>
     Private Shared Function HideCaret(ByVal hWnd As IntPtr) As Integer
     End Function
+
     Dim ButtonAnIndex, RichStep, SubStop As Integer, Arguments, FileParameter, vImage, cImage As String
     Dim NProcess As String
 
     Private Sub Form1_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         If File.Exists(MedExtra & "Mini.ini") Then WMetroMed()
     End Sub
+
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
         Me.Text = "MetroMed " & Me.Tag
 
@@ -77,9 +80,7 @@ Public Class MetroMed
                         'port = line(1)
                         mServer.Items.Add(Sserver)
                     End While
-
                 Catch ex As Exception
-
                 Finally
                     oRead.Close()
                 End Try
@@ -240,6 +241,16 @@ Public Class MetroMed
 
     Private Sub MetroButton8_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton8.Click
         MednafenModule = "pce"
+        CountRows()
+    End Sub
+
+    Private Sub MetroButton10_Click(sender As Object, e As EventArgs) Handles MetroButton10.Click
+        MednafenModule = "ss"
+        CountRows()
+    End Sub
+
+    Private Sub MetroButton9_Click(sender As Object, e As EventArgs) Handles MetroButton9.Click
+        MednafenModule = "psx"
         CountRows()
     End Sub
 
@@ -467,6 +478,7 @@ Public Class MetroMed
     Private Sub mPlay_Click(sender As Object, e As EventArgs) Handles mPlay.Click
         StartProcess()
     End Sub
+
     Private Sub OnlinePlayToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles mOnlinePlay.Click
         Dim gk, pw As String
         If mGamekey.Text.Trim <> "" Then gk = mGamekey.Text.Trim Else gk = """"""
@@ -558,8 +570,8 @@ Public Class MetroMed
             MednafenVersion = "mednafen"
         ElseIf File.Exists(MedPath & "\mednafen-09x.cfg") Then
             MednafenVersion = "mednafen-09x"
-        End If                         
-                                
+        End If
+
         Dim row, splitrow() As String
         Try
             Using reader As New StreamReader(MedPath & "\" & MednafenVersion & ".cfg")
@@ -583,7 +595,6 @@ Public Class MetroMed
                 reader.Dispose()
                 reader.Close()
             End Using
-
         Catch
         End Try
     End Sub
@@ -644,4 +655,5 @@ Public Class MetroMed
     Private Sub mServer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles mServer.SelectedIndexChanged
         PopulateNetplay()
     End Sub
+
 End Class

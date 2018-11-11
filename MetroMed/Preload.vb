@@ -2,6 +2,7 @@
 Imports System.IO
 
 Module Preload
+
     Public MedPath, MedExtra, MednafenModule, AniTag, AniCover, Effect As String, AniBoxArt(23) As AnimationControl,
         TotalRows, CurrPage, anyindex, NextPage, BoxResult, performance As Integer, TagSplit() As String, ReBitmap As Bitmap
 
@@ -17,6 +18,8 @@ Module Preload
         MetroMed.MetroButton6.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\nes.gif"))
         MetroMed.MetroButton7.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\ngp.gif"))
         MetroMed.MetroButton8.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\pce.gif"))
+        MetroMed.MetroButton9.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\psx.gif"))
+        MetroMed.MetroButton10.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\ss.gif"))
         MetroMed.MetroButton11.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\sms.gif"))
         MetroMed.MetroButton12.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\snes.gif"))
         MetroMed.MetroButton13.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\dtl.png"))
@@ -237,21 +240,21 @@ Re_Try:
                     AniBoxArt(i).AnimationType = AnimationTypes.BottomLeftToTopRight
                 Case "TopRightToBottomLeft"
                     AniBoxArt(i).AnimationType = AnimationTypes.TopRightToBottomLeft
-                    ' rotating effect 
+                    ' rotating effect
                 Case "Maximize"
                     AniBoxArt(i).AnimationType = AnimationTypes.Maximize
                 Case "Rotate"
                     AniBoxArt(i).AnimationType = AnimationTypes.Rotate
                 Case "Spin"
                     AniBoxArt(i).AnimationType = AnimationTypes.Spin
-                    ' shape effect 
+                    ' shape effect
                 Case "Circular"
                     AniBoxArt(i).AnimationType = AnimationTypes.Circular
                 Case "Elliptical"
                     AniBoxArt(i).AnimationType = AnimationTypes.Elliptical
                 Case "Rectangular"
                     AniBoxArt(i).AnimationType = AnimationTypes.Rectangular
-                    ' split effect 
+                    ' split effect
                 Case "SplitHorizontal"
                     AniBoxArt(i).AnimationType = AnimationTypes.SplitHorizontal
                 Case "SplitVertical"
@@ -260,14 +263,14 @@ Re_Try:
                     AniBoxArt(i).AnimationType = AnimationTypes.SplitBoom
                 Case "SplitQuarter"
                     AniBoxArt(i).AnimationType = AnimationTypes.SplitQuarter
-                    ' chess effect 
+                    ' chess effect
                 Case "ChessBoard"
                     AniBoxArt(i).AnimationType = AnimationTypes.ChessBoard
                 Case "ChessHorizontal"
                     AniBoxArt(i).AnimationType = AnimationTypes.ChessHorizontal
                 Case "ChessVertical"
                     AniBoxArt(i).AnimationType = AnimationTypes.ChessVertical
-                    ' panorama effect 
+                    ' panorama effect
                 Case "Panorama"
                     AniBoxArt(i).AnimationType = AnimationTypes.Panorama
                 Case "PanoramaHorizontal"
@@ -289,5 +292,3 @@ Re_Try:
     End Sub
 
 End Module
-
-
