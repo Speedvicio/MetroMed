@@ -85,7 +85,7 @@ Module Preload
             CleanAniboxart()
 
             Select Case MednafenModule
-                Case "fav", "ss", "psx", "pcfx", ""
+                Case "fav", "pcfx", ""
                     Exit Sub
             End Select
 
