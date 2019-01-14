@@ -4,9 +4,10 @@ A GUI/Appendix for [MedGui Reborn](https://github.com/Speedvicio/MedGuiReborn) w
 **MetroMed** have all basic options to play a local or online session by [Mednafen](https://mednafen.github.io/) multi emulator, you can always start MedGui Reborn from it to perform advanced session.
 
 ## Screenshot
-
+<p align="center">
 <a href="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed1.jpg/1"><img src="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed1.jpg/1" width="300" /></a><br>
 <a href="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed2.jpg/1"><img src="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed2.jpg/1" width="300" /></a><br>
+</p>
 
 ## Instruction
 MetroMed needed [MedGui Reborn](https://github.com/Speedvicio/MedGuiReborn) to work because it is a plugin/appendix.<br>
