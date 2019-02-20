@@ -10,7 +10,7 @@ Public Class MetroMed
     End Function
 
     Dim ButtonAnIndex, RichStep, SubStop As Integer, Arguments, FileParameter, vImage, cImage As String
-    Dim NProcess As String
+    Dim NProcess, MednafenCore As String
 
     Private Sub Form1_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         If File.Exists(MedExtra & "Mini.ini") Then WMetroMed()
@@ -430,6 +430,8 @@ Public Class MetroMed
 
         AniBoxArt(ButtonAnIndex).Animate(performance)
 
+        MednafenCore = TagSplit(6)
+
         If CheckBox1.Checked = True Then
             fast = "-pce.enable 0 "
         Else
@@ -520,7 +522,30 @@ Public Class MetroMed
 
     Private Sub mInput_Click(sender As Object, e As EventArgs) Handles mInput.Click
 
-        Dim parameter As String = "-folder=" & Chr(34) & MedPath & Chr(34) & " -file=" & Chr(34) & Path.GetFileNameWithoutExtension(FileParameter) & Chr(34)
+        Dim portpad As String
+
+        If MednafenCore = "pce" Then
+            If CheckBox1.Checked = True Then
+                MednafenCore += "_fast"
+            End If
+        ElseIf MednafenCore = "snes" Then
+            If CheckBox2.Checked = True Then
+                MednafenCore += "_faust"
+            End If
+        End If
+
+        Select Case MednafenCore
+            Case "apple2", "md", "psx", "snes_faust", "ss"
+                portpad = "Virtual Port 1"
+            Case "nes", "pce", "pce_fast", "pcfx", "sms", "demo"
+                portpad = "Port 1"
+            Case "snes"
+                portpad = "Port 1/1A"
+            Case Else
+                portpad = "Built-In"
+        End Select
+
+        Dim parameter As String = "-folder=" & Chr(34) & MedPath & Chr(34) & " -console=" & MednafenCore & " -port=" & Chr(34) & portpad & Chr(34) & " -file=" & Chr(34) & Path.GetFileNameWithoutExtension(FileParameter) & Chr(34)
         If File.Exists(MedExtra & "\Plugins\Controller\MedPad.exe") Then
             NProcess = "MedPad"
             KillProcess()

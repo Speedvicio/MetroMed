@@ -1371,7 +1371,7 @@ Partial Class MetroMed
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MetroMed"
-        Me.Tag = "Beta 09"
+        Me.Tag = "Beta 10"
         Me.Text = "MetroMed"
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
