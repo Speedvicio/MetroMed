@@ -194,6 +194,11 @@ Public Class MetroMed
         ReadCSV()
     End Sub
 
+    Private Sub MetroButton18_Click(sender As Object, e As EventArgs) Handles MetroButton18.Click
+        MednafenModule = "apple2"
+        CountRows()
+    End Sub
+
     Private Sub MetroButton16_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton16.Click
         MednafenModule = "def"
         CountRows()

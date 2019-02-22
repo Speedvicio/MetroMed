@@ -27,6 +27,7 @@ Module Preload
         MetroMed.MetroButton15.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\wswan.gif"))
         MetroMed.MetroButton16.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\folder.png"))
         MetroMed.MetroButton17.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\favourite.png"))
+        MetroMed.MetroButton18.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\apple2.gif"))
         MetroMed.CheckBox1.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\fast.png"))
         MetroMed.CheckBox2.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\faust.png"))
         MetroMed.About.Image = (New Bitmap(MedExtra & "Resource\Gui\info.png"))
