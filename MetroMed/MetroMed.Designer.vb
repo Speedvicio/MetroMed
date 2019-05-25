@@ -86,8 +86,6 @@ Partial Class MetroMed
         Me.MetroLabel1 = New MetroFramework.Controls.MetroLabel()
         Me.MetroLabel2 = New MetroFramework.Controls.MetroLabel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.MetroButton18 = New MetroFramework.Controls.MetroButton()
-        Me.MetroButton17 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton16 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton8 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton7 = New MetroFramework.Controls.MetroButton()
@@ -104,6 +102,8 @@ Partial Class MetroMed
         Me.MetroButton13 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton9 = New MetroFramework.Controls.MetroButton()
         Me.MetroButton10 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton17 = New MetroFramework.Controls.MetroButton()
+        Me.MetroButton18 = New MetroFramework.Controls.MetroButton()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -164,6 +164,7 @@ Partial Class MetroMed
         '
         'SplitContainer2
         '
+        Me.SplitContainer2.BackColor = System.Drawing.Color.Transparent
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer2.Location = New System.Drawing.Point(0, 0)
         Me.SplitContainer2.Name = "SplitContainer2"
@@ -1059,34 +1060,6 @@ Partial Class MetroMed
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(547, 38)
         Me.TableLayoutPanel2.TabIndex = 2
         '
-        'MetroButton18
-        '
-        Me.MetroButton18.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton18.BackColor = System.Drawing.Color.Transparent
-        Me.MetroButton18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton18.Location = New System.Drawing.Point(67, 3)
-        Me.MetroButton18.Name = "MetroButton18"
-        Me.MetroButton18.Size = New System.Drawing.Size(26, 32)
-        Me.MetroButton18.TabIndex = 19
-        Me.MetroButton18.Tag = ""
-        Me.MetroToolTip1.SetToolTip(Me.MetroButton18, "Apple II Folder")
-        Me.MetroButton18.UseSelectable = True
-        Me.MetroButton18.UseStyleColors = True
-        '
-        'MetroButton17
-        '
-        Me.MetroButton17.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.MetroButton17.BackColor = System.Drawing.Color.Transparent
-        Me.MetroButton17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.MetroButton17.Location = New System.Drawing.Point(3, 3)
-        Me.MetroButton17.Name = "MetroButton17"
-        Me.MetroButton17.Size = New System.Drawing.Size(26, 32)
-        Me.MetroButton17.TabIndex = 16
-        Me.MetroButton17.Tag = ""
-        Me.MetroToolTip1.SetToolTip(Me.MetroButton17, "  Favoutite games  ")
-        Me.MetroButton17.UseSelectable = True
-        Me.MetroButton17.UseStyleColors = True
-        '
         'MetroButton16
         '
         Me.MetroButton16.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -1282,6 +1255,34 @@ Partial Class MetroMed
         Me.MetroToolTip1.SetToolTip(Me.MetroButton10, "Sega - Saturn")
         Me.MetroButton10.UseSelectable = True
         Me.MetroButton10.UseStyleColors = True
+        '
+        'MetroButton17
+        '
+        Me.MetroButton17.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MetroButton17.BackColor = System.Drawing.Color.Transparent
+        Me.MetroButton17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.MetroButton17.Location = New System.Drawing.Point(3, 3)
+        Me.MetroButton17.Name = "MetroButton17"
+        Me.MetroButton17.Size = New System.Drawing.Size(26, 32)
+        Me.MetroButton17.TabIndex = 16
+        Me.MetroButton17.Tag = ""
+        Me.MetroToolTip1.SetToolTip(Me.MetroButton17, "  Favoutite games  ")
+        Me.MetroButton17.UseSelectable = True
+        Me.MetroButton17.UseStyleColors = True
+        '
+        'MetroButton18
+        '
+        Me.MetroButton18.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.MetroButton18.BackColor = System.Drawing.Color.Transparent
+        Me.MetroButton18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.MetroButton18.Location = New System.Drawing.Point(67, 3)
+        Me.MetroButton18.Name = "MetroButton18"
+        Me.MetroButton18.Size = New System.Drawing.Size(26, 32)
+        Me.MetroButton18.TabIndex = 19
+        Me.MetroButton18.Tag = ""
+        Me.MetroToolTip1.SetToolTip(Me.MetroButton18, "Apple II Folder")
+        Me.MetroButton18.UseSelectable = True
+        Me.MetroButton18.UseStyleColors = True
         '
         'TableLayoutPanel3
         '

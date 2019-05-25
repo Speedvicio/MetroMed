@@ -640,6 +640,7 @@ Public Class MetroMed
     Private Sub MetroContextMenu1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles MetroContextMenu1.Opening
         MetroListServer_reload()
         ParseMednafenConfig()
+        MetroToolTip1.Active = False
     End Sub
 
     Private Sub MetroTextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles MetroTextBox1.KeyUp
@@ -686,4 +687,7 @@ Public Class MetroMed
         PopulateNetplay()
     End Sub
 
+    Private Sub MetroContextMenu1_Closing(sender As Object, e As ToolStripDropDownClosingEventArgs) Handles MetroContextMenu1.Closing
+        MetroToolTip1.Active = True
+    End Sub
 End Class
