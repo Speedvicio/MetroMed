@@ -17,6 +17,7 @@ Public Class MetroMed
     End Sub
 
     Private Sub Form1_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        TableLayoutPanel1.Dock = DockStyle.Fill
         Me.Text = "MetroMed " & Me.Tag
 
         If File.Exists(Application.StartupPath & "\MedGuiR.exe") = False Then
@@ -143,6 +144,8 @@ Public Class MetroMed
         MetroLabel3.Style = MetroStyleManager1.Style
         MetroLabel4.Theme = MetroStyleManager1.Theme
         MetroLabel4.Style = MetroStyleManager1.Style
+        MetroGrid1.Theme = MetroStyleManager1.Theme
+        MetroGrid1.Style = MetroStyleManager1.Style
         ColorCheck()
         Me.Style = MetroStyleManager1.Style
         'MetroTile1.ForeColor = System.Drawing.Color.FromName(cmbTheme.Text)
@@ -159,10 +162,14 @@ Public Class MetroMed
             Case "Light", "Default"
                 BackTheme = "Black"
                 BackTheme1 = "White"
+                MetroGrid1.GridColor = Color.Black
             Case "Dark"
                 BackTheme = "White"
                 BackTheme1 = "Black"
+                MetroGrid1.GridColor = Color.White
         End Select
+
+        MetroGrid1.DefaultCellStyle.ForeColor = Color.FromName(cmbStyle.Text)
 
         If CheckBox1.Checked = True Then
             CheckBox1.BackColor = Color.FromName(BackTheme)
@@ -196,77 +203,137 @@ Public Class MetroMed
 
     Private Sub MetroButton18_Click(sender As Object, e As EventArgs) Handles MetroButton18.Click
         MednafenModule = "apple2"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton16_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton16.Click
         MednafenModule = "def"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton17_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton17.Click
         MednafenModule = "fav"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton1_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton1.Click
         MednafenModule = "gb"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton2_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton2.Click
         MednafenModule = "gba"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton3_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton3.Click
         MednafenModule = "gg"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton4_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton4.Click
         MednafenModule = "lynx"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton5_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton5.Click
         MednafenModule = "md"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton6_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton6.Click
         MednafenModule = "nes"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton7_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton7.Click
         MednafenModule = "ngp"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton8_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton8.Click
         MednafenModule = "pce"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton10_Click(sender As Object, e As EventArgs) Handles MetroButton10.Click
         MednafenModule = "ss"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton9_Click(sender As Object, e As EventArgs) Handles MetroButton9.Click
         MednafenModule = "psx"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton11_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton11.Click
         MednafenModule = "sms"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton12_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton12.Click
         MednafenModule = "snes"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton13_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton13.Click
@@ -276,12 +343,20 @@ Public Class MetroMed
 
     Private Sub MetroButton14_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton14.Click
         MednafenModule = "vb"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub MetroButton15_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton15.Click
         MednafenModule = "wswan"
-        CountRows()
+        If CheckBox4.Checked = True Then
+            PopulateGrid()
+        Else
+            CountRows()
+        End If
     End Sub
 
     Private Sub SelectedImage()
@@ -406,16 +481,27 @@ Public Class MetroMed
     End Sub
 
     Private Sub DetectButton(sender As Object, e As EventArgs) Handles AnimationControl9.MouseEnter, AnimationControl8.MouseEnter, AnimationControl7.MouseEnter, AnimationControl6.MouseEnter, AnimationControl5.MouseEnter, AnimationControl4.MouseEnter, AnimationControl3.MouseEnter, AnimationControl24.MouseEnter, AnimationControl23.MouseEnter, AnimationControl22.MouseEnter, AnimationControl21.MouseEnter, AnimationControl20.MouseEnter, AnimationControl2.MouseEnter, AnimationControl19.MouseEnter, AnimationControl18.MouseEnter, AnimationControl17.MouseEnter, AnimationControl16.MouseEnter, AnimationControl15.MouseEnter, AnimationControl14.MouseEnter, AnimationControl13.MouseEnter, AnimationControl12.MouseEnter, AnimationControl11.MouseEnter, AnimationControl10.MouseEnter, AnimationControl1.MouseEnter
+
+        Dim b As AnimationControl = CType(sender, AnimationControl)
+        AniTag = (b.Tag)
+
+        RetrieveSnap()
+
+        If (TagSplit.Length - 1) = 10 Then
+            ButtonAnIndex = TagSplit(10)
+            AniBoxArt(ButtonAnIndex).Animate(performance)
+        End If
+
+        AddArguments()
+    End Sub
+
+    Private Sub RetrieveSnap()
         PictureBox1.Image = Nothing
         PictureBox2.Image = Nothing
         RichTextBox1.Clear()
 
-        Dim fast, faust As String
-        Dim b As AnimationControl = CType(sender, AnimationControl)
-        AniTag = (b.Tag)
         If AniTag = "" Then Exit Sub
         SplitTag()
-        ButtonAnIndex = TagSplit(10)
         ReadXml()
         MetroLabel3.Text = cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & TagSplit(2) 'MetroToolTip1.GetToolTip(b).Trim
 
@@ -432,9 +518,10 @@ Public Class MetroMed
             'Else
             'PictureBox2.Image = Nothing
         End If
+    End Sub
 
-        AniBoxArt(ButtonAnIndex).Animate(performance)
-
+    Private Sub AddArguments()
+        Dim fast, faust As String
         MednafenCore = TagSplit(6)
 
         If CheckBox1.Checked = True Then
@@ -450,9 +537,12 @@ Public Class MetroMed
 
         FileParameter = TagSplit(4)
         Arguments = fast & faust & Chr(34) & FileParameter & Chr(34)
-        RichTextBox1.Focus()
-        RichStep = 0
-        HideCaret(RichTextBox1.Handle)
+
+        If CheckBox3.Checked = True Then
+            RichTextBox1.Focus()
+            RichStep = 0
+            HideCaret(RichTextBox1.Handle)
+        End If
     End Sub
 
     Private Sub RichTextBoxScroll(sender As Object, e As MouseEventArgs) Handles AnimationControl9.MouseWheel, AnimationControl8.MouseWheel, AnimationControl7.MouseWheel, AnimationControl6.MouseWheel, AnimationControl5.MouseWheel, AnimationControl4.MouseWheel, AnimationControl3.MouseWheel, AnimationControl24.MouseWheel, AnimationControl23.MouseWheel, AnimationControl22.MouseWheel, AnimationControl21.MouseWheel, AnimationControl20.MouseWheel, AnimationControl2.MouseWheel, AnimationControl19.MouseWheel, AnimationControl18.MouseWheel, AnimationControl17.MouseWheel, AnimationControl16.MouseWheel, AnimationControl15.MouseWheel, AnimationControl14.MouseWheel, AnimationControl13.MouseWheel, AnimationControl12.MouseWheel, AnimationControl11.MouseWheel, AnimationControl10.MouseWheel, AnimationControl1.MouseWheel
@@ -505,7 +595,7 @@ Public Class MetroMed
                 .WorkingDirectory = MedPath
             End With
             execute.Start()
-            Arguments = ""
+            If CheckBox3.Checked = True Then Arguments = ""
         Catch ex As Exception
             MetroMessageBox.Show(Me, "Unable to start Mednafen", "Process Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Arguments = ""
@@ -643,10 +733,52 @@ Public Class MetroMed
         MetroToolTip1.Active = False
     End Sub
 
+    Private Sub CheckBox4_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox4.CheckedChanged
+        If CheckBox4.Checked = True Then
+            TableLayoutPanel1.Dock = DockStyle.None
+            CleanAniboxart()
+            TableLayoutPanel1.Visible = False
+            MetroGrid1.Dock = DockStyle.Fill
+            RichTextBox1.Visible = False
+            AnimationControl25.Dock = DockStyle.Fill
+            AnimationControl25.Visible = True
+            MetroGrid1.Visible = True
+            PopulateGrid()
+        End If
+    End Sub
+
+    Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
+        If CheckBox3.Checked = True Then
+            MetroGrid1.Dock = DockStyle.None
+            allItems.Clear()
+            MetroGrid1.Rows.Clear()
+            MetroGrid1.Visible = False
+            AnimationControl25.Visible = False
+            TableLayoutPanel1.Dock = DockStyle.Fill
+            RichTextBox1.Visible = True
+            RichTextBox1.Dock = DockStyle.Fill
+            TableLayoutPanel1.Visible = True
+        End If
+    End Sub
+
+    Private Sub CheckBox3_Click(sender As Object, e As EventArgs) Handles CheckBox3.Click
+        CheckBox3.Checked = True
+        CheckBox4.Checked = False
+    End Sub
+
+    Private Sub CheckBox4_Click(sender As Object, e As EventArgs) Handles CheckBox4.Click
+        CheckBox4.Checked = True
+        CheckBox3.Checked = False
+    End Sub
+
     Private Sub MetroTextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles MetroTextBox1.KeyUp
         Select Case e.KeyCode
             Case Keys.Cancel, Keys.Delete, Keys.Enter
-                CountRows()
+                If CheckBox3.Checked = True Then
+                    CountRows()
+                ElseIf CheckBox4.Checked = True Then
+                    PopulateGrid()
+                End If
         End Select
     End Sub
 
@@ -690,4 +822,127 @@ Public Class MetroMed
     Private Sub MetroContextMenu1_Closing(sender As Object, e As ToolStripDropDownClosingEventArgs) Handles MetroContextMenu1.Closing
         MetroToolTip1.Active = True
     End Sub
+
+    Private allItems As New List(Of String)()
+    Private csvList As String
+
+    Private Sub PopulateGrid()
+        allItems.Clear()
+        MetroGrid1.Rows.Clear()
+        If File.Exists(MedExtra & "Scanned\" & MednafenModule & ".csv") Then
+            csvList = MedExtra & "Scanned\" & MednafenModule & ".csv"
+            ReadCsvList(MetroTextBox1.Text.Trim)
+        Else
+            MetroTile1.Enabled = False
+            MetroTile2.Enabled = False
+            MetroLabel1.Text = 0
+            MetroLabel2.Text = 0
+            MetroLabel3.Text = ""
+
+            Select Case MednafenModule
+                Case "fav", "pcfx", ""
+                    Exit Sub
+            End Select
+
+            Dim risp As String = MetroFramework.MetroMessageBox.Show(Me, "No Prescanned files found!" & vbCrLf & "Do you want to open MedGuiR to do a prescan?",
+                                                "No file " & MednafenModule & ".csv found...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+            If risp = vbYes Then SendFolder() Else MednafenModule = ""
+        End If
+    End Sub
+
+    Private Function ReadCsvList(GSplit) As String
+
+        If File.Exists(csvList) Then
+            Dim objReader As New StreamReader(csvList)
+            Dim sLine As String = ""
+            Dim arrText As New ArrayList()
+            Dim FullGame() As String
+            Do
+                sLine = objReader.ReadLine()
+                If Not sLine Is Nothing Then
+                    arrText.Add(sLine)
+                End If
+            Loop Until sLine Is Nothing
+            objReader.Close()
+
+            For Each sLine In arrText
+
+                FullGame = sLine.Split("|")
+                If GSplit = "" Then
+                    allItems.Add(sLine)
+                    MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & FullGame(6).ToString & ".gif"), 32, 32, True))
+                Else
+                    If UCase(FullGame(0).ToString).Contains(UCase(GSplit)) Then
+                        allItems.Add(sLine)
+                        MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & FullGame(6).ToString & ".gif"), 32, 32, True))
+                        'Exit For
+                    End If
+                End If
+            Next
+            If MetroGrid1.Rows.Count > 0 Then
+                MetroGrid1.Rows(0).Selected = True
+                extractAnitag()
+                RetrieveSnap()
+                AddArguments()
+            End If
+        End If
+    End Function
+
+    Private Sub GetThumb(fullgame5, fullgame0, gif)
+        Dim thumb As Bitmap = Nothing
+        Dim coverSize As Long = 0
+
+        If File.Exists(MedExtra & "BoxArt\" & fullgame5 & "\" & fullgame0 & ".png") Then
+            coverSize = FileLen(MedExtra & "BoxArt\" & fullgame5 & "\" & fullgame0 & ".png")
+        End If
+
+        If coverSize > 20000 Then
+            AniCover = MedExtra & "BoxArt\" & fullgame5 & "\" & fullgame0 & ".png"
+        Else
+            SearchScrape(fullgame5, fullgame0, gif)
+        End If
+    End Sub
+
+    Private Sub extractAnitag()
+        Dim Singletag() As String
+        For Each sLine In allItems
+            Singletag = sLine.Split("|")
+            If Singletag(0).ToString & " " & Singletag(2).ToString & " *** " & Singletag(8).ToString = MetroGrid1.SelectedCells(0).Value.ToString Then
+                GetThumb(Singletag(5).ToString, Singletag(0).ToString, Singletag(6).ToString())
+                AniTag = sLine
+                CoverEffects()
+                ResizeCover(AnimationControl25)
+                AnimationControl25.AnimatedImage = ReBitmap
+                AnimationControl25.Animate(performance)
+                Exit For
+            End If
+        Next
+    End Sub
+
+    Private Sub MetroGrid1_SelectionChanged(sender As Object, e As EventArgs) Handles MetroGrid1.SelectionChanged
+        If CheckBox3.Checked = True Then Exit Sub
+        extractAnitag()
+        RetrieveSnap()
+        AddArguments()
+    End Sub
+
+    Private Sub MetroGrid1_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles MetroGrid1.CellMouseDown
+        If e.Button = MouseButtons.Right Then
+            MetroGrid1.CurrentCell = MetroGrid1(e.ColumnIndex, e.RowIndex)
+        End If
+    End Sub
+
+    Private Sub MetroGrid1_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles MetroGrid1.CellDoubleClick
+        StartProcess()
+    End Sub
+
+    Public Function EmptyBoxart(gif As String)
+        Dim PathEmptyBox As String = MedExtra & "Resource\Logos\" & gif & ".png"
+        If IO.File.Exists(PathEmptyBox) Then
+            AniCover = PathEmptyBox
+        Else
+            AniCover = MedExtra & "BoxArt\NoPr.png"
+        End If
+    End Function
+
 End Class

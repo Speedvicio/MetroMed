@@ -23,18 +23,24 @@ Partial Class MetroMed
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MetroMed))
         Me.MetroStyleManager1 = New MetroFramework.Components.MetroStyleManager(Me.components)
         Me.MetroStyleExtender1 = New MetroFramework.Components.MetroStyleExtender(Me.components)
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer()
+        Me.AnimationControl25 = New AnimationControl()
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.MetroTextBox1 = New MetroFramework.Controls.MetroTextBox()
         Me.MetroLabel4 = New MetroFramework.Controls.MetroLabel()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.MetroGrid1 = New MetroFramework.Controls.MetroGrid()
+        Me.GameName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GSystem = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroContextMenu1 = New MetroFramework.Controls.MetroContextMenu(Me.components)
         Me.mPlay = New System.Windows.Forms.ToolStripMenuItem()
         Me.mNetPlay = New System.Windows.Forms.ToolStripMenuItem()
@@ -56,6 +62,7 @@ Partial Class MetroMed
         Me.mGuiMode = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.About = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.AnimationControl24 = New AnimationControl()
         Me.AnimationControl23 = New AnimationControl()
         Me.AnimationControl22 = New AnimationControl()
@@ -107,6 +114,9 @@ Partial Class MetroMed
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
+        Me.CheckBox3 = New System.Windows.Forms.CheckBox()
+        Me.CheckBox4 = New System.Windows.Forms.CheckBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.MetroLabel3 = New MetroFramework.Controls.MetroLabel()
         Me.MetroToolTip1 = New MetroFramework.Components.MetroToolTip()
@@ -123,11 +133,13 @@ Partial Class MetroMed
         Me.TableLayoutPanel5.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.MetroContextMenu1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel6.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -156,6 +168,7 @@ Partial Class MetroMed
         'SplitContainer1.Panel2
         '
         Me.MetroStyleExtender1.SetApplyMetroTheme(Me.SplitContainer1.Panel2, True)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.MetroGrid1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.TableLayoutPanel1)
         Me.SplitContainer1.Panel2MinSize = 145
         Me.SplitContainer1.Size = New System.Drawing.Size(826, 328)
@@ -174,6 +187,7 @@ Partial Class MetroMed
         '
         Me.MetroStyleExtender1.SetApplyMetroTheme(Me.SplitContainer2.Panel1, True)
         Me.SplitContainer2.Panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.SplitContainer2.Panel1.Controls.Add(Me.AnimationControl25)
         Me.SplitContainer2.Panel1.Controls.Add(Me.RichTextBox1)
         '
         'SplitContainer2.Panel2
@@ -186,18 +200,33 @@ Partial Class MetroMed
         Me.SplitContainer2.SplitterDistance = 186
         Me.SplitContainer2.TabIndex = 0
         '
+        'AnimationControl25
+        '
+        Me.AnimationControl25.AnimationType = AnimationTypes.Fade
+        Me.AnimationControl25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.AnimationControl25.BorderColor = System.Drawing.Color.Black
+        Me.AnimationControl25.ForeColor = System.Drawing.Color.Black
+        Me.AnimationControl25.Location = New System.Drawing.Point(5, 4)
+        Me.AnimationControl25.MinimumSize = New System.Drawing.Size(100, 100)
+        Me.AnimationControl25.Name = "AnimationControl25"
+        Me.AnimationControl25.Opacity = 0.04R
+        Me.AnimationControl25.Size = New System.Drawing.Size(267, 100)
+        Me.AnimationControl25.TabIndex = 1
+        Me.AnimationControl25.Text = "AnimationControl25"
+        Me.AnimationControl25.Transparent = True
+        Me.AnimationControl25.TransparentColor = System.Drawing.Color.Transparent
+        '
         'RichTextBox1
         '
         Me.MetroStyleExtender1.SetApplyMetroTheme(Me.RichTextBox1, True)
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RichTextBox1.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.Location = New System.Drawing.Point(0, 0)
+        Me.RichTextBox1.Location = New System.Drawing.Point(0, 104)
         Me.RichTextBox1.Margin = New System.Windows.Forms.Padding(20)
         Me.RichTextBox1.Name = "RichTextBox1"
         Me.RichTextBox1.ReadOnly = True
-        Me.RichTextBox1.Size = New System.Drawing.Size(275, 186)
+        Me.RichTextBox1.Size = New System.Drawing.Size(275, 82)
         Me.RichTextBox1.TabIndex = 0
         Me.RichTextBox1.Text = ""
         '
@@ -284,53 +313,85 @@ Partial Class MetroMed
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
-        'TableLayoutPanel1
+        'MetroGrid1
         '
-        Me.MetroStyleExtender1.SetApplyMetroTheme(Me.TableLayoutPanel1, True)
-        Me.TableLayoutPanel1.ColumnCount = 5
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.ContextMenuStrip = Me.MetroContextMenu1
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl24, 3, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl23, 2, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl22, 1, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl21, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl20, 4, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl19, 3, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl18, 2, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl17, 1, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl16, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl15, 4, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl14, 3, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl13, 2, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl12, 1, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl11, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl10, 4, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl9, 3, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl8, 2, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl7, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl6, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl5, 4, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl4, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl3, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl2, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl1, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 4, 4)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(50)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 5
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(547, 328)
-        Me.TableLayoutPanel1.TabIndex = 0
+        Me.MetroGrid1.AllowUserToAddRows = False
+        Me.MetroGrid1.AllowUserToDeleteRows = False
+        Me.MetroGrid1.AllowUserToOrderColumns = True
+        Me.MetroGrid1.AllowUserToResizeColumns = False
+        Me.MetroGrid1.AllowUserToResizeRows = False
+        Me.MetroGrid1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader
+        Me.MetroGrid1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders
+        Me.MetroGrid1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MetroGrid1.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.MetroGrid1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None
+        Me.MetroGrid1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        Me.MetroGrid1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.MetroGrid1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.MetroGrid1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.GameName, Me.GSystem})
+        Me.MetroGrid1.ContextMenuStrip = Me.MetroContextMenu1
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(136, Byte), Integer), CType(CType(136, Byte), Integer), CType(CType(136, Byte), Integer))
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.MetroGrid1.DefaultCellStyle = DataGridViewCellStyle2
+        Me.MetroGrid1.EnableHeadersVisualStyles = False
+        Me.MetroGrid1.Font = New System.Drawing.Font("Segoe UI", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel)
+        Me.MetroGrid1.GridColor = System.Drawing.Color.Black
+        Me.MetroGrid1.Location = New System.Drawing.Point(3, 219)
+        Me.MetroGrid1.MultiSelect = False
+        Me.MetroGrid1.Name = "MetroGrid1"
+        Me.MetroGrid1.ReadOnly = True
+        Me.MetroGrid1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(174, Byte), Integer), CType(CType(219, Byte), Integer))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(198, Byte), Integer), CType(CType(247, Byte), Integer))
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer), CType(CType(17, Byte), Integer))
+        Me.MetroGrid1.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.MetroGrid1.RowHeadersVisible = False
+        Me.MetroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing
+        Me.MetroGrid1.RowTemplate.DividerHeight = 3
+        Me.MetroGrid1.RowTemplate.Height = 3
+        Me.MetroGrid1.RowTemplate.ReadOnly = True
+        Me.MetroGrid1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.MetroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.MetroGrid1.Size = New System.Drawing.Size(537, 106)
+        Me.MetroGrid1.TabIndex = 1
+        Me.MetroGrid1.UseCustomBackColor = True
+        Me.MetroGrid1.UseCustomForeColor = True
+        Me.MetroGrid1.UseStyleColors = True
+        Me.MetroGrid1.Visible = False
+        '
+        'GameName
+        '
+        Me.GameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.GameName.DividerWidth = 3
+        Me.GameName.HeaderText = "Game Name"
+        Me.GameName.Name = "GameName"
+        Me.GameName.ReadOnly = True
+        Me.GameName.Width = 5
+        '
+        'GSystem
+        '
+        Me.GSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.GSystem.DividerWidth = 3
+        Me.GSystem.HeaderText = "System"
+        Me.GSystem.Name = "GSystem"
+        Me.GSystem.ReadOnly = True
+        Me.GSystem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.GSystem.Width = 88
         '
         'MetroContextMenu1
         '
@@ -474,6 +535,53 @@ Partial Class MetroMed
         Me.About.Text = "&About"
         Me.About.ToolTipText = "About MetroMed"
         '
+        'TableLayoutPanel1
+        '
+        Me.MetroStyleExtender1.SetApplyMetroTheme(Me.TableLayoutPanel1, True)
+        Me.TableLayoutPanel1.ColumnCount = 5
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.ContextMenuStrip = Me.MetroContextMenu1
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl24, 3, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl23, 2, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl22, 1, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl21, 0, 4)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl20, 4, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl19, 3, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl18, 2, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl17, 1, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl16, 0, 3)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl15, 4, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl14, 3, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl13, 2, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl12, 1, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl11, 0, 2)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl10, 4, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl9, 3, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl8, 2, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl7, 1, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl6, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl5, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl4, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl3, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl2, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AnimationControl1, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel4, 4, 4)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(50)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 5
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(547, 204)
+        Me.TableLayoutPanel1.TabIndex = 0
+        '
         'AnimationControl24
         '
         Me.AnimationControl24.AnimationType = AnimationTypes.Fade
@@ -483,11 +591,11 @@ Partial Class MetroMed
         Me.AnimationControl24.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl24.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl24.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl24.Location = New System.Drawing.Point(330, 263)
+        Me.AnimationControl24.Location = New System.Drawing.Point(330, 163)
         Me.AnimationControl24.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl24.Name = "AnimationControl24"
         Me.AnimationControl24.Opacity = 0.04R
-        Me.AnimationControl24.Size = New System.Drawing.Size(103, 62)
+        Me.AnimationControl24.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl24.TabIndex = 48
         Me.AnimationControl24.Text = "AnimationControl24"
         Me.AnimationControl24.Transparent = True
@@ -502,11 +610,11 @@ Partial Class MetroMed
         Me.AnimationControl23.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl23.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl23.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl23.Location = New System.Drawing.Point(221, 263)
+        Me.AnimationControl23.Location = New System.Drawing.Point(221, 163)
         Me.AnimationControl23.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl23.Name = "AnimationControl23"
         Me.AnimationControl23.Opacity = 0.04R
-        Me.AnimationControl23.Size = New System.Drawing.Size(103, 62)
+        Me.AnimationControl23.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl23.TabIndex = 47
         Me.AnimationControl23.Text = "AnimationControl23"
         Me.AnimationControl23.Transparent = True
@@ -521,11 +629,11 @@ Partial Class MetroMed
         Me.AnimationControl22.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl22.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl22.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl22.Location = New System.Drawing.Point(112, 263)
+        Me.AnimationControl22.Location = New System.Drawing.Point(112, 163)
         Me.AnimationControl22.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl22.Name = "AnimationControl22"
         Me.AnimationControl22.Opacity = 0.04R
-        Me.AnimationControl22.Size = New System.Drawing.Size(103, 62)
+        Me.AnimationControl22.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl22.TabIndex = 46
         Me.AnimationControl22.Text = "AnimationControl22"
         Me.AnimationControl22.Transparent = True
@@ -540,11 +648,11 @@ Partial Class MetroMed
         Me.AnimationControl21.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl21.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl21.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl21.Location = New System.Drawing.Point(3, 263)
+        Me.AnimationControl21.Location = New System.Drawing.Point(3, 163)
         Me.AnimationControl21.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl21.Name = "AnimationControl21"
         Me.AnimationControl21.Opacity = 0.04R
-        Me.AnimationControl21.Size = New System.Drawing.Size(103, 62)
+        Me.AnimationControl21.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl21.TabIndex = 45
         Me.AnimationControl21.Text = "AnimationControl21"
         Me.AnimationControl21.Transparent = True
@@ -559,11 +667,11 @@ Partial Class MetroMed
         Me.AnimationControl20.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl20.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl20.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl20.Location = New System.Drawing.Point(439, 198)
+        Me.AnimationControl20.Location = New System.Drawing.Point(439, 123)
         Me.AnimationControl20.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl20.Name = "AnimationControl20"
         Me.AnimationControl20.Opacity = 0.04R
-        Me.AnimationControl20.Size = New System.Drawing.Size(105, 59)
+        Me.AnimationControl20.Size = New System.Drawing.Size(105, 50)
         Me.AnimationControl20.TabIndex = 44
         Me.AnimationControl20.Text = "AnimationControl20"
         Me.AnimationControl20.Transparent = True
@@ -578,11 +686,11 @@ Partial Class MetroMed
         Me.AnimationControl19.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl19.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl19.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl19.Location = New System.Drawing.Point(330, 198)
+        Me.AnimationControl19.Location = New System.Drawing.Point(330, 123)
         Me.AnimationControl19.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl19.Name = "AnimationControl19"
         Me.AnimationControl19.Opacity = 0.04R
-        Me.AnimationControl19.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl19.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl19.TabIndex = 43
         Me.AnimationControl19.Text = "AnimationControl19"
         Me.AnimationControl19.Transparent = True
@@ -597,11 +705,11 @@ Partial Class MetroMed
         Me.AnimationControl18.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl18.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl18.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl18.Location = New System.Drawing.Point(221, 198)
+        Me.AnimationControl18.Location = New System.Drawing.Point(221, 123)
         Me.AnimationControl18.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl18.Name = "AnimationControl18"
         Me.AnimationControl18.Opacity = 0.04R
-        Me.AnimationControl18.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl18.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl18.TabIndex = 42
         Me.AnimationControl18.Text = "AnimationControl18"
         Me.AnimationControl18.Transparent = True
@@ -616,11 +724,11 @@ Partial Class MetroMed
         Me.AnimationControl17.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl17.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl17.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl17.Location = New System.Drawing.Point(112, 198)
+        Me.AnimationControl17.Location = New System.Drawing.Point(112, 123)
         Me.AnimationControl17.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl17.Name = "AnimationControl17"
         Me.AnimationControl17.Opacity = 0.04R
-        Me.AnimationControl17.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl17.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl17.TabIndex = 41
         Me.AnimationControl17.Text = "AnimationControl17"
         Me.AnimationControl17.Transparent = True
@@ -635,11 +743,11 @@ Partial Class MetroMed
         Me.AnimationControl16.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl16.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl16.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl16.Location = New System.Drawing.Point(3, 198)
+        Me.AnimationControl16.Location = New System.Drawing.Point(3, 123)
         Me.AnimationControl16.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl16.Name = "AnimationControl16"
         Me.AnimationControl16.Opacity = 0.04R
-        Me.AnimationControl16.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl16.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl16.TabIndex = 40
         Me.AnimationControl16.Text = "AnimationControl16"
         Me.AnimationControl16.Transparent = True
@@ -654,11 +762,11 @@ Partial Class MetroMed
         Me.AnimationControl15.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl15.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl15.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl15.Location = New System.Drawing.Point(439, 133)
+        Me.AnimationControl15.Location = New System.Drawing.Point(439, 83)
         Me.AnimationControl15.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl15.Name = "AnimationControl15"
         Me.AnimationControl15.Opacity = 0.04R
-        Me.AnimationControl15.Size = New System.Drawing.Size(105, 59)
+        Me.AnimationControl15.Size = New System.Drawing.Size(105, 50)
         Me.AnimationControl15.TabIndex = 39
         Me.AnimationControl15.Text = "AnimationControl15"
         Me.AnimationControl15.Transparent = True
@@ -673,11 +781,11 @@ Partial Class MetroMed
         Me.AnimationControl14.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl14.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl14.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl14.Location = New System.Drawing.Point(330, 133)
+        Me.AnimationControl14.Location = New System.Drawing.Point(330, 83)
         Me.AnimationControl14.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl14.Name = "AnimationControl14"
         Me.AnimationControl14.Opacity = 0.04R
-        Me.AnimationControl14.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl14.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl14.TabIndex = 38
         Me.AnimationControl14.Text = "AnimationControl14"
         Me.AnimationControl14.Transparent = True
@@ -692,11 +800,11 @@ Partial Class MetroMed
         Me.AnimationControl13.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl13.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl13.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl13.Location = New System.Drawing.Point(221, 133)
+        Me.AnimationControl13.Location = New System.Drawing.Point(221, 83)
         Me.AnimationControl13.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl13.Name = "AnimationControl13"
         Me.AnimationControl13.Opacity = 0.04R
-        Me.AnimationControl13.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl13.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl13.TabIndex = 37
         Me.AnimationControl13.Text = "AnimationControl13"
         Me.AnimationControl13.Transparent = True
@@ -711,11 +819,11 @@ Partial Class MetroMed
         Me.AnimationControl12.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl12.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl12.Location = New System.Drawing.Point(112, 133)
+        Me.AnimationControl12.Location = New System.Drawing.Point(112, 83)
         Me.AnimationControl12.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl12.Name = "AnimationControl12"
         Me.AnimationControl12.Opacity = 0.04R
-        Me.AnimationControl12.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl12.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl12.TabIndex = 36
         Me.AnimationControl12.Text = "AnimationControl12"
         Me.AnimationControl12.Transparent = True
@@ -730,11 +838,11 @@ Partial Class MetroMed
         Me.AnimationControl11.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl11.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl11.Location = New System.Drawing.Point(3, 133)
+        Me.AnimationControl11.Location = New System.Drawing.Point(3, 83)
         Me.AnimationControl11.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl11.Name = "AnimationControl11"
         Me.AnimationControl11.Opacity = 0.04R
-        Me.AnimationControl11.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl11.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl11.TabIndex = 35
         Me.AnimationControl11.Text = "AnimationControl11"
         Me.AnimationControl11.Transparent = True
@@ -749,11 +857,11 @@ Partial Class MetroMed
         Me.AnimationControl10.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl10.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl10.Location = New System.Drawing.Point(439, 68)
+        Me.AnimationControl10.Location = New System.Drawing.Point(439, 43)
         Me.AnimationControl10.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl10.Name = "AnimationControl10"
         Me.AnimationControl10.Opacity = 0.04R
-        Me.AnimationControl10.Size = New System.Drawing.Size(105, 59)
+        Me.AnimationControl10.Size = New System.Drawing.Size(105, 50)
         Me.AnimationControl10.TabIndex = 34
         Me.AnimationControl10.Text = "AnimationControl10"
         Me.AnimationControl10.Transparent = True
@@ -768,11 +876,11 @@ Partial Class MetroMed
         Me.AnimationControl9.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl9.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl9.Location = New System.Drawing.Point(330, 68)
+        Me.AnimationControl9.Location = New System.Drawing.Point(330, 43)
         Me.AnimationControl9.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl9.Name = "AnimationControl9"
         Me.AnimationControl9.Opacity = 0.04R
-        Me.AnimationControl9.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl9.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl9.TabIndex = 33
         Me.AnimationControl9.Text = "AnimationControl9"
         Me.AnimationControl9.Transparent = True
@@ -787,11 +895,11 @@ Partial Class MetroMed
         Me.AnimationControl8.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl8.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl8.Location = New System.Drawing.Point(221, 68)
+        Me.AnimationControl8.Location = New System.Drawing.Point(221, 43)
         Me.AnimationControl8.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl8.Name = "AnimationControl8"
         Me.AnimationControl8.Opacity = 0.04R
-        Me.AnimationControl8.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl8.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl8.TabIndex = 32
         Me.AnimationControl8.Text = "AnimationControl8"
         Me.AnimationControl8.Transparent = True
@@ -806,11 +914,11 @@ Partial Class MetroMed
         Me.AnimationControl7.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl7.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl7.Location = New System.Drawing.Point(112, 68)
+        Me.AnimationControl7.Location = New System.Drawing.Point(112, 43)
         Me.AnimationControl7.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl7.Name = "AnimationControl7"
         Me.AnimationControl7.Opacity = 0.04R
-        Me.AnimationControl7.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl7.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl7.TabIndex = 31
         Me.AnimationControl7.Text = "AnimationControl7"
         Me.AnimationControl7.Transparent = True
@@ -825,11 +933,11 @@ Partial Class MetroMed
         Me.AnimationControl6.BorderColor = System.Drawing.Color.Black
         Me.AnimationControl6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AnimationControl6.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.AnimationControl6.Location = New System.Drawing.Point(3, 68)
+        Me.AnimationControl6.Location = New System.Drawing.Point(3, 43)
         Me.AnimationControl6.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl6.Name = "AnimationControl6"
         Me.AnimationControl6.Opacity = 0.04R
-        Me.AnimationControl6.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl6.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl6.TabIndex = 30
         Me.AnimationControl6.Text = "AnimationControl6"
         Me.AnimationControl6.Transparent = True
@@ -848,7 +956,7 @@ Partial Class MetroMed
         Me.AnimationControl5.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl5.Name = "AnimationControl5"
         Me.AnimationControl5.Opacity = 0.04R
-        Me.AnimationControl5.Size = New System.Drawing.Size(105, 59)
+        Me.AnimationControl5.Size = New System.Drawing.Size(105, 50)
         Me.AnimationControl5.TabIndex = 29
         Me.AnimationControl5.Text = "AnimationControl5"
         Me.AnimationControl5.Transparent = True
@@ -867,7 +975,7 @@ Partial Class MetroMed
         Me.AnimationControl4.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl4.Name = "AnimationControl4"
         Me.AnimationControl4.Opacity = 0.04R
-        Me.AnimationControl4.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl4.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl4.TabIndex = 28
         Me.AnimationControl4.Text = "AnimationControl4"
         Me.AnimationControl4.Transparent = True
@@ -886,7 +994,7 @@ Partial Class MetroMed
         Me.AnimationControl3.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl3.Name = "AnimationControl3"
         Me.AnimationControl3.Opacity = 0.04R
-        Me.AnimationControl3.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl3.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl3.TabIndex = 27
         Me.AnimationControl3.Text = "AnimationControl3"
         Me.AnimationControl3.Transparent = True
@@ -905,7 +1013,7 @@ Partial Class MetroMed
         Me.AnimationControl2.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl2.Name = "AnimationControl2"
         Me.AnimationControl2.Opacity = 0.04R
-        Me.AnimationControl2.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl2.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl2.TabIndex = 26
         Me.AnimationControl2.Text = "AnimationControl2"
         Me.AnimationControl2.Transparent = True
@@ -924,7 +1032,7 @@ Partial Class MetroMed
         Me.AnimationControl1.MinimumSize = New System.Drawing.Size(50, 50)
         Me.AnimationControl1.Name = "AnimationControl1"
         Me.AnimationControl1.Opacity = 0.04R
-        Me.AnimationControl1.Size = New System.Drawing.Size(103, 59)
+        Me.AnimationControl1.Size = New System.Drawing.Size(103, 50)
         Me.AnimationControl1.TabIndex = 25
         Me.AnimationControl1.Text = "AnimationControl1"
         Me.AnimationControl1.Transparent = True
@@ -940,12 +1048,12 @@ Partial Class MetroMed
         Me.TableLayoutPanel4.Controls.Add(Me.MetroLabel1, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.MetroLabel2, 1, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(439, 263)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(439, 163)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(105, 62)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(105, 38)
         Me.TableLayoutPanel4.TabIndex = 49
         '
         'MetroTile2
@@ -953,9 +1061,9 @@ Partial Class MetroMed
         Me.MetroTile2.ActiveControl = Nothing
         Me.MetroTile2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroTile2.Enabled = False
-        Me.MetroTile2.Location = New System.Drawing.Point(55, 34)
+        Me.MetroTile2.Location = New System.Drawing.Point(55, 22)
         Me.MetroTile2.Name = "MetroTile2"
-        Me.MetroTile2.Size = New System.Drawing.Size(47, 25)
+        Me.MetroTile2.Size = New System.Drawing.Size(47, 13)
         Me.MetroTile2.TabIndex = 52
         Me.MetroTile2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.MetroTile2.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -970,9 +1078,9 @@ Partial Class MetroMed
         Me.MetroTile1.ActiveControl = Nothing
         Me.MetroTile1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.MetroTile1.Enabled = False
-        Me.MetroTile1.Location = New System.Drawing.Point(3, 34)
+        Me.MetroTile1.Location = New System.Drawing.Point(3, 22)
         Me.MetroTile1.Name = "MetroTile1"
-        Me.MetroTile1.Size = New System.Drawing.Size(46, 25)
+        Me.MetroTile1.Size = New System.Drawing.Size(46, 13)
         Me.MetroTile1.TabIndex = 51
         Me.MetroTile1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.MetroTile1.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -990,7 +1098,7 @@ Partial Class MetroMed
         Me.MetroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold
         Me.MetroLabel1.Location = New System.Drawing.Point(3, 0)
         Me.MetroLabel1.Name = "MetroLabel1"
-        Me.MetroLabel1.Size = New System.Drawing.Size(46, 31)
+        Me.MetroLabel1.Size = New System.Drawing.Size(46, 19)
         Me.MetroLabel1.TabIndex = 0
         Me.MetroLabel1.Text = "0"
         Me.MetroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1005,7 +1113,7 @@ Partial Class MetroMed
         Me.MetroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold
         Me.MetroLabel2.Location = New System.Drawing.Point(55, 0)
         Me.MetroLabel2.Name = "MetroLabel2"
-        Me.MetroLabel2.Size = New System.Drawing.Size(47, 31)
+        Me.MetroLabel2.Size = New System.Drawing.Size(47, 19)
         Me.MetroLabel2.TabIndex = 1
         Me.MetroLabel2.Text = "0"
         Me.MetroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -1332,6 +1440,56 @@ Partial Class MetroMed
         Me.MetroToolTip1.SetToolTip(Me.CheckBox1, "    Enable Fast module for PC-Engine Games    ")
         Me.CheckBox1.UseVisualStyleBackColor = False
         '
+        'TableLayoutPanel6
+        '
+        Me.MetroStyleExtender1.SetApplyMetroTheme(Me.TableLayoutPanel6, True)
+        Me.TableLayoutPanel6.ColumnCount = 2
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.Controls.Add(Me.CheckBox3, 0, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.CheckBox4, 0, 0)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(117, 63)
+        Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
+        Me.TableLayoutPanel6.RowCount = 1
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(91, 38)
+        Me.TableLayoutPanel6.TabIndex = 6
+        '
+        'CheckBox3
+        '
+        Me.CheckBox3.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.CheckBox3.Appearance = System.Windows.Forms.Appearance.Button
+        Me.MetroStyleExtender1.SetApplyMetroTheme(Me.CheckBox3, True)
+        Me.CheckBox3.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.CheckBox3.Checked = True
+        Me.CheckBox3.CheckState = System.Windows.Forms.CheckState.Indeterminate
+        Me.CheckBox3.FlatAppearance.BorderSize = 0
+        Me.CheckBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox3.Location = New System.Drawing.Point(50, 3)
+        Me.CheckBox3.Name = "CheckBox3"
+        Me.CheckBox3.Size = New System.Drawing.Size(35, 32)
+        Me.CheckBox3.TabIndex = 11
+        Me.MetroToolTip1.SetToolTip(Me.CheckBox3, "    Enable Faust module for Snes Games    ")
+        Me.CheckBox3.UseVisualStyleBackColor = False
+        '
+        'CheckBox4
+        '
+        Me.CheckBox4.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.CheckBox4.Appearance = System.Windows.Forms.Appearance.Button
+        Me.MetroStyleExtender1.SetApplyMetroTheme(Me.CheckBox4, True)
+        Me.CheckBox4.BackColor = System.Drawing.Color.Transparent
+        Me.CheckBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.CheckBox4.FlatAppearance.BorderSize = 0
+        Me.CheckBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CheckBox4.Location = New System.Drawing.Point(5, 3)
+        Me.CheckBox4.Name = "CheckBox4"
+        Me.CheckBox4.Size = New System.Drawing.Size(35, 32)
+        Me.CheckBox4.TabIndex = 10
+        Me.MetroToolTip1.SetToolTip(Me.CheckBox4, "    Enable Fast module for PC-Engine Games    ")
+        Me.CheckBox4.UseVisualStyleBackColor = False
+        '
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -1382,6 +1540,7 @@ Partial Class MetroMed
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(862, 445)
+        Me.Controls.Add(Me.TableLayoutPanel6)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.SplitContainer1)
@@ -1389,7 +1548,7 @@ Partial Class MetroMed
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MetroMed"
-        Me.Tag = "Beta 10"
+        Me.Tag = "Beta 11"
         Me.Text = "MetroMed"
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -1402,12 +1561,14 @@ Partial Class MetroMed
         Me.TableLayoutPanel5.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        CType(Me.MetroGrid1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.MetroContextMenu1.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel6.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
@@ -1502,4 +1663,11 @@ Partial Class MetroMed
     Friend WithEvents MetroButton10 As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroButton9 As MetroFramework.Controls.MetroButton
     Friend WithEvents MetroButton18 As MetroFramework.Controls.MetroButton
+    Friend WithEvents MetroGrid1 As MetroFramework.Controls.MetroGrid
+    Friend WithEvents TableLayoutPanel6 As TableLayoutPanel
+    Friend WithEvents CheckBox3 As CheckBox
+    Friend WithEvents CheckBox4 As CheckBox
+    Friend WithEvents AnimationControl25 As AnimationControl
+    Friend WithEvents GameName As DataGridViewTextBoxColumn
+    Friend WithEvents GSystem As DataGridViewImageColumn
 End Class

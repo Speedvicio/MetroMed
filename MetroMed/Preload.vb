@@ -30,6 +30,8 @@ Module Preload
         MetroMed.MetroButton18.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\apple2.gif"))
         MetroMed.CheckBox1.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\fast.png"))
         MetroMed.CheckBox2.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\faust.png"))
+        MetroMed.CheckBox4.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\list.png"))
+        MetroMed.CheckBox3.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\grid.png"))
         MetroMed.About.Image = (New Bitmap(MedExtra & "Resource\Gui\info.png"))
         MetroMed.mPlay.Image = (New Bitmap(MedExtra & "Resource\Gui\play.png"))
         MetroMed.mNetPlay.Image = (New Bitmap(MedExtra & "Resource\Gui\netplay.png"))
@@ -181,16 +183,17 @@ Re_Try:
                 AniCover = MedExtra & "BoxArt\" & TagSplit(5) & "\" & TagSplit(0) & ".png"
 
                 If File.Exists(AniCover) = False Then
-                    SearchScrape()
+                    SearchScrape(TagSplit(5), TagSplit(0), TagSplit(6))
                 End If
-                ResizeCover()
+                ResizeCover(AniBoxArt(anyindex))
                 'AniBoxArt(anyindex).AnimatedImage = GamesInfo.Resize(New Bitmap(AniCover), AniBoxArt(anyindex).Width, AniBoxArt(anyindex).Height, False)
                 AniBoxArt(anyindex).AnimatedImage = ReBitmap
                 AniBoxArt(anyindex).Animate(performance)
                 anyindex = anyindex + 1
             Catch
-                AniCover = MedExtra & "BoxArt\NoPr.png"
-                ResizeCover()
+                'AniCover = MedExtra & "BoxArt\NoPr.png"
+                MetroMed.EmptyBoxart(TagSplit(6))
+                ResizeCover(AniBoxArt(anyindex))
                 If anyindex = 24 Then anyindex = 23
                 AniBoxArt(anyindex).AnimatedImage = ReBitmap
                 AniBoxArt(anyindex).Animate(performance)
@@ -201,18 +204,23 @@ Re_Try:
 
     End Sub
 
-    Public Sub ResizeCover()
-        ReBitmap = New Bitmap(AniBoxArt(anyindex).Width, AniBoxArt(anyindex).Height)
+    Public Sub ResizeCover(animation As AnimationControl)
+        ReBitmap = New Bitmap(animation.Width, animation.Height)
         Dim Graphics As Graphics = Graphics.FromImage(ReBitmap)
-        Dim inputImage As Image = GamesInfo.Resize(New Bitmap(AniCover), AniBoxArt(anyindex).Width - 5, AniBoxArt(anyindex).Height - 5, True)
-        Graphics.DrawImage(inputImage, New Point((AniBoxArt(anyindex).Width - inputImage.Width) / 2, (AniBoxArt(anyindex).Height - inputImage.Height) / 2))
+        Dim inputImage As Image = GamesInfo.Resize(New Bitmap(AniCover), animation.Width - 5, animation.Height - 5, True)
+        Graphics.DrawImage(inputImage, New Point((animation.Width - inputImage.Width) / 2, (animation.Height - inputImage.Height) / 2))
     End Sub
 
-    Public Sub SearchScrape()
-        AniCover = MedExtra & "BoxArt\NoPr.png"
-        For Each foundFile As String In My.Computer.FileSystem.GetFiles(MedExtra & "Scraped\" & TagSplit(5) & "\" & TagSplit(0))
-            If foundFile.Contains("tfront") Then AniCover = foundFile
-        Next
+    Public Sub SearchScrape(console, gname, gif)
+        'AniCover = MedExtra & "BoxArt\NoPr.png"
+        MetroMed.EmptyBoxart(gif)
+        If Directory.Exists(MedExtra & "Scraped\" & console & "\" & gname) Then
+            For Each foundFile As String In My.Computer.FileSystem.GetFiles(MedExtra & "Scraped\" & console & "\" & gname)
+                If foundFile.Contains("tfront") Then
+                    AniCover = foundFile
+                End If
+            Next
+        End If
         'If AniCover = "" Then AniCover = MedExtra & "BoxArt\NoPr.png"
     End Sub
 
@@ -221,75 +229,82 @@ Re_Try:
     End Sub
 
     Public Sub CoverEffects()
+        Dim Anindex As Integer = Nothing
 
-        For i = 0 To 23
-            Select Case Effect
+        Select Case Effect
                 ' sliding effect
-                Case "LeftToRight"
-                    AniBoxArt(i).AnimationType = AnimationTypes.LeftToRight
-                Case "RighTotLeft"
-                    AniBoxArt(i).AnimationType = AnimationTypes.RighTotLeft
-                Case "TopToDown"
-                    AniBoxArt(i).AnimationType = AnimationTypes.TopToDown
-                Case "DownToTop"
-                    AniBoxArt(i).AnimationType = AnimationTypes.DownToTop
-                Case "TopLeftToBottomRight"
-                    AniBoxArt(i).AnimationType = AnimationTypes.TopLeftToBottomRight
-                Case "BottomRightToTopLeft"
-                    AniBoxArt(i).AnimationType = AnimationTypes.BottomRightToTopLeft
-                Case "BottomLeftToTopRight"
-                    AniBoxArt(i).AnimationType = AnimationTypes.BottomLeftToTopRight
-                Case "TopRightToBottomLeft"
-                    AniBoxArt(i).AnimationType = AnimationTypes.TopRightToBottomLeft
+            Case "LeftToRight"
+                Anindex = AnimationTypes.LeftToRight
+            Case "RighTotLeft"
+                Anindex = AnimationTypes.RighTotLeft
+            Case "TopToDown"
+                Anindex = AnimationTypes.TopToDown
+            Case "DownToTop"
+                Anindex = AnimationTypes.DownToTop
+            Case "TopLeftToBottomRight"
+                Anindex = AnimationTypes.TopLeftToBottomRight
+            Case "BottomRightToTopLeft"
+                Anindex = AnimationTypes.BottomRightToTopLeft
+            Case "BottomLeftToTopRight"
+                Anindex = AnimationTypes.BottomLeftToTopRight
+            Case "TopRightToBottomLeft"
+                Anindex = AnimationTypes.TopRightToBottomLeft
                     ' rotating effect
-                Case "Maximize"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Maximize
-                Case "Rotate"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Rotate
-                Case "Spin"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Spin
+            Case "Maximize"
+                Anindex = AnimationTypes.Maximize
+            Case "Rotate"
+                Anindex = AnimationTypes.Rotate
+            Case "Spin"
+                Anindex = AnimationTypes.Spin
                     ' shape effect
-                Case "Circular"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Circular
-                Case "Elliptical"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Elliptical
-                Case "Rectangular"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Rectangular
+            Case "Circular"
+                Anindex = AnimationTypes.Circular
+            Case "Elliptical"
+                Anindex = AnimationTypes.Elliptical
+            Case "Rectangular"
+                Anindex = AnimationTypes.Rectangular
                     ' split effect
-                Case "SplitHorizontal"
-                    AniBoxArt(i).AnimationType = AnimationTypes.SplitHorizontal
-                Case "SplitVertical"
-                    AniBoxArt(i).AnimationType = AnimationTypes.SplitVertical
-                Case "SplitBoom"
-                    AniBoxArt(i).AnimationType = AnimationTypes.SplitBoom
-                Case "SplitQuarter"
-                    AniBoxArt(i).AnimationType = AnimationTypes.SplitQuarter
+            Case "SplitHorizontal"
+                Anindex = AnimationTypes.SplitHorizontal
+            Case "SplitVertical"
+                Anindex = AnimationTypes.SplitVertical
+            Case "SplitBoom"
+                Anindex = AnimationTypes.SplitBoom
+            Case "SplitQuarter"
+                Anindex = AnimationTypes.SplitQuarter
                     ' chess effect
-                Case "ChessBoard"
-                    AniBoxArt(i).AnimationType = AnimationTypes.ChessBoard
-                Case "ChessHorizontal"
-                    AniBoxArt(i).AnimationType = AnimationTypes.ChessHorizontal
-                Case "ChessVertical"
-                    AniBoxArt(i).AnimationType = AnimationTypes.ChessVertical
+            Case "ChessBoard"
+                Anindex = AnimationTypes.ChessBoard
+            Case "ChessHorizontal"
+                Anindex = AnimationTypes.ChessHorizontal
+            Case "ChessVertical"
+                Anindex = AnimationTypes.ChessVertical
                     ' panorama effect
-                Case "Panorama"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Panorama
-                Case "PanoramaHorizontal"
-                    AniBoxArt(i).AnimationType = AnimationTypes.PanoramaHorizontal
-                Case "PanoramaVertical"
-                    AniBoxArt(i).AnimationType = AnimationTypes.PanoramaVertical
+            Case "Panorama"
+                Anindex = AnimationTypes.Panorama
+            Case "PanoramaHorizontal"
+                Anindex = AnimationTypes.PanoramaHorizontal
+            Case "PanoramaVertical"
+                Anindex = AnimationTypes.PanoramaVertical
                     ' spiral effect
-                Case "Spiral"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Spiral
-                Case "SpiralBoom"
-                    AniBoxArt(i).AnimationType = AnimationTypes.SpiralBoom
+            Case "Spiral"
+                Anindex = AnimationTypes.Spiral
+            Case "SpiralBoom"
+                Anindex = AnimationTypes.SpiralBoom
                     ' fade effect
-                Case "Fade"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Fade
-                Case "Fade2Images"
-                    AniBoxArt(i).AnimationType = AnimationTypes.Fade2Images
-            End Select
-        Next i
+            Case "Fade"
+                Anindex = AnimationTypes.Fade
+            Case "Fade2Images"
+                Anindex = AnimationTypes.Fade2Images
+        End Select
+
+        If MetroMed.CheckBox3.Checked = True Then
+            For i = 0 To 23
+                AniBoxArt(i).AnimationType = Anindex
+            Next i
+        ElseIf MetroMed.CheckBox4.Checked = True Then
+            MetroMed.AnimationControl25.AnimationType = Anindex
+        End If
     End Sub
 
 End Module
