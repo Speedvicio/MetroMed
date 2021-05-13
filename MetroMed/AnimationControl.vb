@@ -4,7 +4,6 @@
 ' OCtober 31, 2008
 ' dedicated to Bob
 
-Imports System.Windows.Forms
 Imports System.Drawing
 Imports System.Drawing.Drawing2D
 Imports System.Drawing.Imaging
@@ -83,11 +82,11 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.Browsable(False)> _
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)> _
-    <System.ComponentModel.DefaultValue(GetType(Color), "Transparent")> _
-    <System.ComponentModel.Description("Set background color.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.Browsable(False)>
+    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)>
+    <System.ComponentModel.DefaultValue(GetType(Color), "Transparent")>
+    <System.ComponentModel.Description("Set background color.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Overrides Property BackColor() As System.Drawing.Color
         Get
             Return m_backcolor
@@ -98,12 +97,12 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.Browsable(True)> _
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Always)> _
-    <System.ComponentModel.DefaultValue(1.0R)> _
-    <System.ComponentModel.TypeConverter(GetType(OpacityConverter))> _
-    <System.ComponentModel.Description("Set the opacity percentage of the control.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.Browsable(True)>
+    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Always)>
+    <System.ComponentModel.DefaultValue(1.0R)>
+    <System.ComponentModel.TypeConverter(GetType(OpacityConverter))>
+    <System.ComponentModel.Description("Set the opacity percentage of the control.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Overridable Property Opacity() As Double
         Get
             Return m_opacity
@@ -118,11 +117,11 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.Browsable(True)> _
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Always)> _
-    <System.ComponentModel.DefaultValue(GetType(Boolean), "False")> _
-    <System.ComponentModel.Description("Enable control trnasparency.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.Browsable(True)>
+    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Always)>
+    <System.ComponentModel.DefaultValue(GetType(Boolean), "False")>
+    <System.ComponentModel.Description("Enable control trnasparency.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Overridable Property Transparent() As Boolean
         Get
             Return m_transparent
@@ -136,11 +135,11 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.Browsable(True)> _
-    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Always)> _
-    <System.ComponentModel.DefaultValue(GetType(Color), "DodgerBlue")> _
-    <System.ComponentModel.Description("Set the fill color of the control.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.Browsable(True)>
+    <System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Always)>
+    <System.ComponentModel.DefaultValue(GetType(Color), "DodgerBlue")>
+    <System.ComponentModel.Description("Set the fill color of the control.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Overridable Property TransparentColor() As Color
         Get
             Return m_transparentColor
@@ -151,9 +150,9 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.DefaultValue(GetType(Bitmap), "")> _
-    <System.ComponentModel.Description("Set animated iamge.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.DefaultValue(GetType(Bitmap), "")>
+    <System.ComponentModel.Description("Set animated iamge.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Property AnimatedImage() As Bitmap
         Get
             Return m_AnimatedBitmap
@@ -163,9 +162,9 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.DefaultValue(GetType(Bitmap), "")> _
-    <System.ComponentModel.Description("Set fade iamge.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.DefaultValue(GetType(Bitmap), "")>
+    <System.ComponentModel.Description("Set fade iamge.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Property AnimatedFadeImage() As Bitmap
         Get
             Return m_AnimatedFadeImage
@@ -175,9 +174,9 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.DefaultValue(GetType(AnimationTypes), "Maximize")> _
-    <System.ComponentModel.Description("Set animation type.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.DefaultValue(GetType(AnimationTypes), "Maximize")>
+    <System.ComponentModel.Description("Set animation type.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Property AnimationType() As AnimationTypes
         Get
             Return m_AnimationType
@@ -187,9 +186,9 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.DefaultValue(GetType(Single), "2")> _
-    <System.ComponentModel.Description("Set animation speed. the greater value the slowest speed")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.DefaultValue(GetType(Single), "2")>
+    <System.ComponentModel.Description("Set animation speed. the greater value the slowest speed")>
+    <System.ComponentModel.Category("Control Style")>
     Public Property AnimationSpeed() As Single
         Get
             Return CSng(m_AnimationSpeed.TotalSeconds)
@@ -199,9 +198,9 @@ Public Class AnimationControl
         End Set
     End Property
 
-    <System.ComponentModel.DefaultValue(GetType(Color), "LightGray")> _
-    <System.ComponentModel.Description("Set border color.")> _
-    <System.ComponentModel.Category("Control Style")> _
+    <System.ComponentModel.DefaultValue(GetType(Color), "LightGray")>
+    <System.ComponentModel.Description("Set border color.")>
+    <System.ComponentModel.Category("Control Style")>
     Public Property BorderColor() As Color
         Get
             Return m_borderColor
@@ -222,8 +221,8 @@ Public Class AnimationControl
             m_Interval = 100
         End If
 
-        m_Timer.Interval = m_Interval
-        m_Timer.Enabled = True
+        m_timer.Interval = m_Interval
+        m_timer.Enabled = True
         m_AnimationPercent = 0
         m_AnimationStartTime = DateTime.Now
         IsAnimating = True
@@ -234,7 +233,7 @@ Public Class AnimationControl
 
     Private Sub AnimationStop()
         IsAnimating = False
-        m_Timer.Enabled = False
+        m_timer.Enabled = False
     End Sub
 
     Private Sub TimerTick(ByVal source As Object, ByVal e As System.Timers.ElapsedEventArgs)
@@ -264,12 +263,11 @@ Public Class AnimationControl
         If Transparent Then
             Using sb As New SolidBrush(control.BackColor)
                 g.FillRectangle(sb, Rect)
-                
+
                 Using sbt As New SolidBrush(Color.FromArgb(control.Opacity * 255, control.TransparentColor))
                     g.FillRectangle(sbt, Rect)
                 End Using
             End Using
-
         Else
 
             Using sb As New SolidBrush(control.TransparentColor)
@@ -602,24 +600,23 @@ Public Class AnimationControl
                     ' --------------->
                 Case AnimationTypes.SplitHorizontal ' Image split horizontal effect
 
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                0, _
-                                                                CInt((control.Width * m_AnimationPercent / 200)), control.Height), _
-                                                                0, _
-                                                                0, _
-                                                                CInt(m_AnimatedBitmap.Width / 2), _
-                                                                m_AnimatedBitmap.Height, _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                0,
+                                                                CInt((control.Width * m_AnimationPercent / 200)), control.Height),
+                                                                0,
+                                                                0,
+                                                                CInt(m_AnimatedBitmap.Width / 2),
+                                                                m_AnimatedBitmap.Height,
                                                                 GraphicsUnit.Pixel)
 
-
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))), _
-                                                               0, _
-                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)), _
-                                                               control.ClientRectangle.Height), _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               0, _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               m_AnimatedBitmap.Height, _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))),
+                                                               0,
+                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)),
+                                                               control.ClientRectangle.Height),
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               0,
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               m_AnimatedBitmap.Height,
                                                                GraphicsUnit.Pixel)
 
                     Exit Select
@@ -627,50 +624,44 @@ Public Class AnimationControl
                     ' --------------->
                 Case AnimationTypes.SplitQuarter ' Image split quarter effect
 
-
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                0, _
-                                                               CInt((control.Width * m_AnimationPercent / 200)), _
-                                                               CInt((control.Height * m_AnimationPercent / 200))), _
-                                                               0, _
-                                                               0, _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                0,
+                                                               CInt((control.Width * m_AnimationPercent / 200)),
+                                                               CInt((control.Height * m_AnimationPercent / 200))),
+                                                               0,
+                                                               0,
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               CInt(m_AnimatedBitmap.Height / 2),
                                                                GraphicsUnit.Pixel)
 
-
-
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))), _
-                                                               0, _
-                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)), _
-                                                               CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))), _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               0, _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))),
+                                                               0,
+                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)),
+                                                               CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))),
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               0,
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               CInt(m_AnimatedBitmap.Height / 2),
                                                                GraphicsUnit.Pixel)
 
-
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                               CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))), _
-                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)), _
-                                                               CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))), _
-                                                               0, _
-                                                               CInt(m_AnimatedBitmap.Height / 2), _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                               CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))),
+                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)),
+                                                               CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))),
+                                                               0,
+                                                               CInt(m_AnimatedBitmap.Height / 2),
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               CInt(m_AnimatedBitmap.Height / 2),
                                                                GraphicsUnit.Pixel)
 
-
-
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))), _
-                                                               CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))), _
-                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)), _
-                                                               CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))), _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               CInt(m_AnimatedBitmap.Height / 2), _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))),
+                                                               CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))),
+                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)),
+                                                               CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))),
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               CInt(m_AnimatedBitmap.Height / 2),
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               CInt(m_AnimatedBitmap.Height / 2),
                                                                GraphicsUnit.Pixel)
 
                     Exit Select
@@ -678,71 +669,68 @@ Public Class AnimationControl
                     ' --------------->
                 Case AnimationTypes.SplitBoom  ' Image split shake effect
 
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                0, _
-                                                                CInt((control.Width * m_AnimationPercent / 200)), control.Rect.Height), _
-                                                                0, _
-                                                                0, _
-                                                                CInt(m_AnimatedBitmap.Width / 2), _
-                                                                m_AnimatedBitmap.Height, _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                0,
+                                                                CInt((control.Width * m_AnimationPercent / 200)), control.Rect.Height),
+                                                                0,
+                                                                0,
+                                                                CInt(m_AnimatedBitmap.Width / 2),
+                                                                m_AnimatedBitmap.Height,
                                                                 GraphicsUnit.Pixel)
 
-
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))), _
-                                                               0, _
-                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)), _
-                                                               control.ClientRectangle.Height), _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               0, _
-                                                               CInt(m_AnimatedBitmap.Width / 2), _
-                                                               m_AnimatedBitmap.Height, _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(CInt((control.Width - CInt(control.Width * m_AnimationPercent / 200))),
+                                                               0,
+                                                               CInt((control.ClientRectangle.Width * m_AnimationPercent / 200)),
+                                                               control.ClientRectangle.Height),
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               0,
+                                                               CInt(m_AnimatedBitmap.Width / 2),
+                                                               m_AnimatedBitmap.Height,
                                                                GraphicsUnit.Pixel)
 
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                0, _
-                                                                control.Width, _
-                                                                CInt((control.Height * m_AnimationPercent / 200))), _
-                                                                0, _
-                                                                0, _
-                                                                m_AnimatedBitmap.Width, _
-                                                                CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                0,
+                                                                control.Width,
+                                                                CInt((control.Height * m_AnimationPercent / 200))),
+                                                                0,
+                                                                0,
+                                                                m_AnimatedBitmap.Width,
+                                                                CInt(m_AnimatedBitmap.Height / 2),
                                                                 GraphicsUnit.Pixel)
 
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))), _
-                                                                control.ClientRectangle.Width, _
-                                                                CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))), _
-                                                                0, _
-                                                                CInt(m_AnimatedBitmap.Height / 2), _
-                                                                m_AnimatedBitmap.Width, _
-                                                                CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))),
+                                                                control.ClientRectangle.Width,
+                                                                CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))),
+                                                                0,
+                                                                CInt(m_AnimatedBitmap.Height / 2),
+                                                                m_AnimatedBitmap.Width,
+                                                                CInt(m_AnimatedBitmap.Height / 2),
                                                                 GraphicsUnit.Pixel)
-
-
 
                     Exit Select
 
                     ' --------------->
                 Case AnimationTypes.SplitVertical ' Image split vertical effect
 
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                0, _
-                                                                control.Width, _
-                                                                CInt((control.Height * m_AnimationPercent / 200))), _
-                                                                0, _
-                                                                0, _
-                                                                m_AnimatedBitmap.Width, _
-                                                                CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                0,
+                                                                control.Width,
+                                                                CInt((control.Height * m_AnimationPercent / 200))),
+                                                                0,
+                                                                0,
+                                                                m_AnimatedBitmap.Width,
+                                                                CInt(m_AnimatedBitmap.Height / 2),
                                                                 GraphicsUnit.Pixel)
 
-                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0, _
-                                                                CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))), _
-                                                                control.ClientRectangle.Width, _
-                                                                CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))), _
-                                                                0, _
-                                                                CInt(m_AnimatedBitmap.Height / 2), _
-                                                                m_AnimatedBitmap.Width, _
-                                                                CInt(m_AnimatedBitmap.Height / 2), _
+                    g.DrawImage(m_AnimatedBitmap, New Rectangle(0,
+                                                                CInt((control.Height - CInt(control.Height * m_AnimationPercent / 200))),
+                                                                control.ClientRectangle.Width,
+                                                                CInt((control.ClientRectangle.Height * m_AnimationPercent / 200))),
+                                                                0,
+                                                                CInt(m_AnimatedBitmap.Height / 2),
+                                                                m_AnimatedBitmap.Width,
+                                                                CInt(m_AnimatedBitmap.Height / 2),
                                                                 GraphicsUnit.Pixel)
                     Exit Select
 
@@ -752,15 +740,14 @@ Public Class AnimationControl
                     For y As Integer = 0 To m_Divider - 1
                         For x As Integer = 0 To m_Divider - 1
 
-                            Dim src As New Rectangle(x * (m_AnimatedBitmap.Width / m_Divider), _
-                                                     y * (m_AnimatedBitmap.Height / m_Divider), _
-                                                     m_AnimatedBitmap.Width / m_Divider, _
+                            Dim src As New Rectangle(x * (m_AnimatedBitmap.Width / m_Divider),
+                                                     y * (m_AnimatedBitmap.Height / m_Divider),
+                                                     m_AnimatedBitmap.Width / m_Divider,
                                                      m_AnimatedBitmap.Height / m_Divider)
 
-
-                            Dim drc As New Rectangle(x * (control.Width / m_Divider), _
-                                                     y * (control.Height / m_Divider), _
-                                                     CInt(((control.Width / m_Divider) * m_AnimationPercent / 100)), _
+                            Dim drc As New Rectangle(x * (control.Width / m_Divider),
+                                                     y * (control.Height / m_Divider),
+                                                     CInt(((control.Width / m_Divider) * m_AnimationPercent / 100)),
                                                      CInt(((control.Height / m_Divider) * m_AnimationPercent / 100)))
 
                             drc.Offset((control.Width / (m_Divider * 2)) - drc.Width / 2, (control.Height / (m_Divider * 2)) - drc.Height / 2)
@@ -777,14 +764,14 @@ Public Class AnimationControl
 
                     For y As Integer = 0 To m_Divider - 1
 
-                        Dim src As New Rectangle(0, _
-                                                 y * (m_AnimatedBitmap.Height / m_Divider), _
-                                                 m_AnimatedBitmap.Width, _
+                        Dim src As New Rectangle(0,
+                                                 y * (m_AnimatedBitmap.Height / m_Divider),
+                                                 m_AnimatedBitmap.Width,
                                                  m_AnimatedBitmap.Height / m_Divider)
 
-                        Dim drc As New Rectangle(0, _
-                                                 y * (control.Height / m_Divider), _
-                                                 control.Width, _
+                        Dim drc As New Rectangle(0,
+                                                 y * (control.Height / m_Divider),
+                                                 control.Width,
                                                  CInt(((control.Height / m_Divider) * m_AnimationPercent / 100)))
 
                         drc.Offset(0, (control.Height / (m_Divider * 2)) - drc.Height / 2)
@@ -798,14 +785,14 @@ Public Class AnimationControl
                 Case AnimationTypes.PanoramaVertical ' Image panorama vetical effect
 
                     For x As Integer = 0 To m_Divider - 1
-                        Dim src As New Rectangle(x * (m_AnimatedBitmap.Width / m_Divider), _
-                                                 0, _
-                                                 m_AnimatedBitmap.Width / m_Divider, _
+                        Dim src As New Rectangle(x * (m_AnimatedBitmap.Width / m_Divider),
+                                                 0,
+                                                 m_AnimatedBitmap.Width / m_Divider,
                                                  m_AnimatedBitmap.Height)
 
-                        Dim drc As New Rectangle(x * (control.Width / m_Divider), _
-                                                 0, _
-                                                 CInt(((control.Width / m_Divider) * m_AnimationPercent / 100)), _
+                        Dim drc As New Rectangle(x * (control.Width / m_Divider),
+                                                 0,
+                                                 CInt(((control.Width / m_Divider) * m_AnimationPercent / 100)),
                                                  control.Height)
 
                         drc.Offset((control.Width / (m_Divider * 2)) - drc.Width / 2, 0)

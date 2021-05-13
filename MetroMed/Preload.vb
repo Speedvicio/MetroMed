@@ -162,7 +162,7 @@ Module Preload
             MetroMed.TimerResize.Enabled = False
             Try
 Re_Try:
-                If i >= TotalRows Then Exit Sub
+                If i >= oSplit.Length - 1 Then Exit Sub
                 AniTag = oSplit(i)
                 SplitTag()
 

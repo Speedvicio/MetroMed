@@ -17,7 +17,6 @@
             If Not (System.IO.File.Exists(Filename)) Then
 
                 ErrString = "Unable to open INI file" & Filename
-
             Else
 
                 ErrString = "The section or the key are wrong and/or File access denied"
@@ -45,7 +44,6 @@
             If Not (System.IO.File.Exists(Filename)) Then
 
                 ErrString = "Unable to open INI file" & Filename
-
             Else
 
                 ErrString = "File access denied"
@@ -61,4 +59,5 @@
         End
 
     End Function
+
 End Class

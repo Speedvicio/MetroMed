@@ -827,7 +827,6 @@ Public Class MetroMed
         End If
     End Sub
 
-
     Private Sub mPerformance_IndexChanged(sender As Object, e As EventArgs) Handles mPerformance.SelectedIndexChanged
         Select Case mPerformance.Text
             Case "Performance"
@@ -970,4 +969,5 @@ Public Class MetroMed
             AniCover = MedExtra & "BoxArt\NoPr.png"
         End If
     End Function
+
 End Class
