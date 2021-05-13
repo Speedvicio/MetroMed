@@ -20,6 +20,15 @@
             MednafenModule = RIni.IniRead(MedExtra & "\Mini.ini", "General", "Startup_Path")
             'CurrPage = RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Current_Page")
             If MetroMed.mPerformance.Text = "" Then MetroMed.mPerformance.Text = "Balanced" : performance = 30
+            Dim iLayout As Integer
+            iLayout = Val(RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Layout"))
+            If iLayout = 1 Then
+                MetroMed.CheckBox3.Checked = True
+                MetroMed.CheckBox4.Checked = False
+            Else
+                MetroMed.CheckBox3.Checked = False
+                MetroMed.CheckBox4.Checked = True
+            End If
         Catch 'ex As Exception
             'MGRWriteLog("ManageIni - DirectoryRMini: " & ex.Message)
             'Finally
@@ -35,6 +44,7 @@
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Style", MetroMed.cmbStyle.SelectedIndex)
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Effect", MetroMed.mEffect.Text)
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Performance", MetroMed.mPerformance.Text)
+        WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Layout", MetroMed.CheckBox3.CheckState)
         'WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Current_Page", MetroLabel1.Text)
         WIni.IniWrite(MedExtra & "\Mini.ini", "General", "Fast_PCE", MetroMed.CheckBox1.CheckState)
         WIni.IniWrite(MedExtra & "\Mini.ini", "General", "SNES_Faust", MetroMed.CheckBox2.CheckState)

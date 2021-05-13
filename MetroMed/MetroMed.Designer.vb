@@ -39,8 +39,6 @@ Partial Class MetroMed
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MetroGrid1 = New MetroFramework.Controls.MetroGrid()
-        Me.GameName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GSystem = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroContextMenu1 = New MetroFramework.Controls.MetroContextMenu(Me.components)
         Me.mPlay = New System.Windows.Forms.ToolStripMenuItem()
         Me.mNetPlay = New System.Windows.Forms.ToolStripMenuItem()
@@ -123,6 +121,8 @@ Partial Class MetroMed
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TimerResize = New System.Windows.Forms.Timer(Me.components)
+        Me.GameName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GSystem = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -372,26 +372,6 @@ Partial Class MetroMed
         Me.MetroGrid1.UseCustomForeColor = True
         Me.MetroGrid1.UseStyleColors = True
         Me.MetroGrid1.Visible = False
-        '
-        'GameName
-        '
-        Me.GameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.GameName.DividerWidth = 3
-        Me.GameName.HeaderText = "Game Name"
-        Me.GameName.Name = "GameName"
-        Me.GameName.ReadOnly = True
-        Me.GameName.Width = 5
-        '
-        'GSystem
-        '
-        Me.GSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.GSystem.DividerWidth = 3
-        Me.GSystem.HeaderText = "System"
-        Me.GSystem.Name = "GSystem"
-        Me.GSystem.ReadOnly = True
-        Me.GSystem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.GSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.GSystem.Width = 88
         '
         'MetroContextMenu1
         '
@@ -1471,7 +1451,7 @@ Partial Class MetroMed
         Me.CheckBox3.Name = "CheckBox3"
         Me.CheckBox3.Size = New System.Drawing.Size(35, 32)
         Me.CheckBox3.TabIndex = 11
-        Me.MetroToolTip1.SetToolTip(Me.CheckBox3, "    Enable Faust module for Snes Games    ")
+        Me.MetroToolTip1.SetToolTip(Me.CheckBox3, "    Enable Games Grid Layout    ")
         Me.CheckBox3.UseVisualStyleBackColor = False
         '
         'CheckBox4
@@ -1487,7 +1467,7 @@ Partial Class MetroMed
         Me.CheckBox4.Name = "CheckBox4"
         Me.CheckBox4.Size = New System.Drawing.Size(35, 32)
         Me.CheckBox4.TabIndex = 10
-        Me.MetroToolTip1.SetToolTip(Me.CheckBox4, "    Enable Fast module for PC-Engine Games    ")
+        Me.MetroToolTip1.SetToolTip(Me.CheckBox4, "    Enable Games List Layout    ")
         Me.CheckBox4.UseVisualStyleBackColor = False
         '
         'Panel1
@@ -1534,6 +1514,25 @@ Partial Class MetroMed
         'TimerResize
         '
         Me.TimerResize.Interval = 100000000
+        '
+        'GameName
+        '
+        Me.GameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.GameName.DividerWidth = 3
+        Me.GameName.HeaderText = "Game Name"
+        Me.GameName.Name = "GameName"
+        Me.GameName.ReadOnly = True
+        '
+        'GSystem
+        '
+        Me.GSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.GSystem.DividerWidth = 3
+        Me.GSystem.HeaderText = "System"
+        Me.GSystem.Name = "GSystem"
+        Me.GSystem.ReadOnly = True
+        Me.GSystem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.GSystem.Width = 88
         '
         'MetroMed
         '

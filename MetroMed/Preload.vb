@@ -30,8 +30,6 @@ Module Preload
         MetroMed.MetroButton18.BackgroundImage = (New Bitmap(MedExtra & "Resource\System\apple2.gif"))
         MetroMed.CheckBox1.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\fast.png"))
         MetroMed.CheckBox2.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\faust.png"))
-        MetroMed.CheckBox4.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\list.png"))
-        MetroMed.CheckBox3.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\grid.png"))
         MetroMed.About.Image = (New Bitmap(MedExtra & "Resource\Gui\info.png"))
         MetroMed.mPlay.Image = (New Bitmap(MedExtra & "Resource\Gui\play.png"))
         MetroMed.mNetPlay.Image = (New Bitmap(MedExtra & "Resource\Gui\netplay.png"))

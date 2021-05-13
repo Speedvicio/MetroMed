@@ -146,52 +146,65 @@ Public Class MetroMed
         MetroLabel4.Style = MetroStyleManager1.Style
         MetroGrid1.Theme = MetroStyleManager1.Theme
         MetroGrid1.Style = MetroStyleManager1.Style
-        ColorCheck()
         Me.Style = MetroStyleManager1.Style
         'MetroTile1.ForeColor = System.Drawing.Color.FromName(cmbTheme.Text)
         Me.Theme = MetroStyleManager1.Theme
-
+        ColorCheck()
         Me.Refresh()
 
     End Sub
 
     Private Sub ColorCheck()
-        Dim BackTheme, BackTheme1 As String
+        MedExtra = Application.StartupPath & "\MedGuiR\"
 
         Select Case cmbTheme.Text()
             Case "Light", "Default"
-                BackTheme = "Black"
-                BackTheme1 = "White"
                 MetroGrid1.GridColor = Color.Black
+                CheckBox4.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\list_black.png"))
+                CheckBox3.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\grid_black.png"))
             Case "Dark"
-                BackTheme = "White"
-                BackTheme1 = "Black"
                 MetroGrid1.GridColor = Color.White
+                CheckBox4.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\list_white.png"))
+                CheckBox3.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\grid_white.png"))
         End Select
 
         MetroGrid1.DefaultCellStyle.ForeColor = Color.FromName(cmbStyle.Text)
 
         If CheckBox1.Checked = True Then
-            CheckBox1.BackColor = Color.FromName(BackTheme)
+            CheckBox1.BackColor = Color.DimGray
         Else
-            CheckBox1.BackColor = Color.FromName(BackTheme1)
+            CheckBox1.BackColor = Me.BackColor
         End If
 
         If CheckBox2.Checked = True Then
-            CheckBox2.BackColor = Color.FromName(BackTheme)
+            CheckBox2.BackColor = Color.DimGray
         Else
-            CheckBox2.BackColor = Color.FromName(BackTheme1)
+            CheckBox2.BackColor = Me.BackColor
+        End If
+
+        If CheckBox3.Checked = True Then
+            CheckBox3.BackColor = Color.DimGray
+        Else
+            CheckBox3.BackColor = Me.BackColor
+        End If
+
+        If CheckBox4.Checked = True Then
+            CheckBox4.BackColor = Color.DimGray
+        Else
+            CheckBox4.BackColor = Me.BackColor
         End If
 
     End Sub
 
     Private Sub cmbTheme_TextChanged(sender As Object, e As System.EventArgs) Handles cmbTheme.TextChanged
         ThemeMod()
+
         'WMetroMed()
     End Sub
 
     Private Sub cmbStyle_TextChanged(sender As Object, e As System.EventArgs) Handles cmbStyle.TextChanged
         ThemeMod()
+
         'ColorCheck()
     End Sub
 
@@ -764,11 +777,13 @@ Public Class MetroMed
     Private Sub CheckBox3_Click(sender As Object, e As EventArgs) Handles CheckBox3.Click
         CheckBox3.Checked = True
         CheckBox4.Checked = False
+        ColorCheck()
     End Sub
 
     Private Sub CheckBox4_Click(sender As Object, e As EventArgs) Handles CheckBox4.Click
         CheckBox4.Checked = True
         CheckBox3.Checked = False
+        ColorCheck()
     End Sub
 
     Private Sub MetroTextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles MetroTextBox1.KeyUp
@@ -797,10 +812,21 @@ Public Class MetroMed
     End Sub
 
     Private Sub TableLayoutPanel1_SizeChanged(sender As Object, e As EventArgs) Handles TableLayoutPanel1.SizeChanged
-        If File.Exists(MedExtra & "Scanned\" & MednafenModule & ".csv") = False Then Exit Sub
-        If Me.Width < 862 Or Me.Height < 445 Then Exit Sub
-        ReadCSV()
+        If CheckBox3.Checked = True Then
+            If File.Exists(MedExtra & "Scanned\" & MednafenModule & ".csv") = False Then Exit Sub
+            If Me.Width < 862 Or Me.Height < 445 Then Exit Sub
+            ReadCSV()
+        End If
     End Sub
+
+    Private Sub AnimationControl25_SizeChanged(sender As Object, e As EventArgs) Handles AnimationControl25.SizeChanged
+        If CheckBox4.Checked = True Then
+            If File.Exists(MedExtra & "Scanned\" & MednafenModule & ".csv") = False Then Exit Sub
+            If Me.Width < 862 Or Me.Height < 445 Then Exit Sub
+            extractAnitag()
+        End If
+    End Sub
+
 
     Private Sub mPerformance_IndexChanged(sender As Object, e As EventArgs) Handles mPerformance.SelectedIndexChanged
         Select Case mPerformance.Text
@@ -944,5 +970,4 @@ Public Class MetroMed
             AniCover = MedExtra & "BoxArt\NoPr.png"
         End If
     End Function
-
 End Class
