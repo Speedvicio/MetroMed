@@ -799,6 +799,7 @@ Public Class MetroMed
 
     Private Sub Form1_ResizeEnd(sender As Object, e As EventArgs) Handles Me.ResizeEnd
         'CountRows()
+        'If CheckBox4.Checked = True Then layoutresize()
     End Sub
 
     Private Sub Form1_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
@@ -809,6 +810,7 @@ Public Class MetroMed
         '   End If
         If Me.Width < 862 Then Me.Width = 862
         If Me.Height < 445 Then Me.Height = 445
+        If CheckBox4.Checked = True Then layoutresize()
     End Sub
 
     Private Sub TableLayoutPanel1_SizeChanged(sender As Object, e As EventArgs) Handles TableLayoutPanel1.SizeChanged
@@ -818,12 +820,18 @@ Public Class MetroMed
             ReadCSV()
         End If
     End Sub
-
+    Dim oldindex As Integer = Nothing
     Private Sub AnimationControl25_SizeChanged(sender As Object, e As EventArgs) Handles AnimationControl25.SizeChanged
+        layoutresize()
+    End Sub
+
+    Private Sub layoutresize()
         If CheckBox4.Checked = True Then
             If File.Exists(MedExtra & "Scanned\" & MednafenModule & ".csv") = False Then Exit Sub
             If Me.Width < 862 Or Me.Height < 445 Then Exit Sub
             extractAnitag()
+            RetrieveSnap()
+            If MetroGrid1.Rows.Count > 0 Then MetroGrid1.Rows(oldindex).Selected = True
         End If
     End Sub
 
@@ -949,6 +957,7 @@ Public Class MetroMed
         extractAnitag()
         RetrieveSnap()
         AddArguments()
+        oldindex = MetroGrid1.CurrentRow.Index
     End Sub
 
     Private Sub MetroGrid1_CellMouseDown(sender As Object, e As DataGridViewCellMouseEventArgs) Handles MetroGrid1.CellMouseDown
