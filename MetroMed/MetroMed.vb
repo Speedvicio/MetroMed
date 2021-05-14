@@ -820,7 +820,9 @@ Public Class MetroMed
             ReadCSV()
         End If
     End Sub
+
     Dim oldindex As Integer = Nothing
+
     Private Sub AnimationControl25_SizeChanged(sender As Object, e As EventArgs) Handles AnimationControl25.SizeChanged
         layoutresize()
     End Sub
