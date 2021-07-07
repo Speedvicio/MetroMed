@@ -368,6 +368,8 @@ Partial Class MetroMed
         Me.MetroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.MetroGrid1.Size = New System.Drawing.Size(537, 106)
         Me.MetroGrid1.TabIndex = 1
+        Me.MetroToolTip1.SetToolTip(Me.MetroGrid1, "- Double Left Mouse Click to run a game" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "- Single Right Mouse Click to open Advan" &
+        "ced Menu")
         Me.MetroGrid1.UseCustomBackColor = True
         Me.MetroGrid1.UseCustomForeColor = True
         Me.MetroGrid1.UseStyleColors = True

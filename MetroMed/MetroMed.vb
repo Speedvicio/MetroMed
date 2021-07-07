@@ -787,8 +787,9 @@ Public Class MetroMed
     End Sub
 
     Private Sub MetroTextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles MetroTextBox1.KeyUp
+        If MetroTextBox1.Text.Trim = "" Then Exit Sub
         Select Case e.KeyCode
-            Case Keys.Cancel, Keys.Delete, Keys.Enter
+            Case Keys.Enter
                 If CheckBox3.Checked = True Then
                     CountRows()
                 ElseIf CheckBox4.Checked = True Then
@@ -980,5 +981,15 @@ Public Class MetroMed
             AniCover = MedExtra & "BoxArt\NoPr.png"
         End If
     End Function
+
+    Private Sub MetroTextBox1_TextChanged(sender As Object, e As EventArgs) Handles MetroTextBox1.TextChanged
+        If MetroTextBox1.Text.Trim = "" Then
+            If CheckBox3.Checked = True Then
+                CountRows()
+            ElseIf CheckBox4.Checked = True Then
+                PopulateGrid()
+            End If
+        End If
+    End Sub
 
 End Class
