@@ -549,6 +549,7 @@ Public Class MetroMed
         End If
 
         FileParameter = TagSplit(4)
+        If FileParameter.StartsWith("..\") Then FileParameter = Replace(FileParameter, "..", Application.StartupPath)
         Arguments = fast & faust & Chr(34) & FileParameter & Chr(34)
 
         If CheckBox3.Checked = True Then

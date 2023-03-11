@@ -6,6 +6,7 @@
             Dim RIni As New Ini
             Dim iTheme, iStyle As String
             MedPath = RIni.IniRead(MedExtra & "\Mini.ini", "General", "Mednafen_path")
+            If MedPath.StartsWith("..\") Then MedPath = Replace(MedPath, "..", Application.StartupPath)
             'Form1.GuiMode.Text = RIni.IniRead(MedExtra & "\Mini.ini", "General", "GUi_Mode")
             iTheme = Val(RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Theme"))
             iStyle = Val(RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Style"))
