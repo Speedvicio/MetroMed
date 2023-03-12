@@ -907,7 +907,14 @@ Public Class MetroMed
                 FullGame = sLine.Split("|")
                 If GSplit = "" Then
                     allItems.Add(sLine)
-                    MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & FullGame(6).ToString & ".gif"), 32, 32, True))
+
+                    Dim subconsole As String = FullGame(6).ToString
+                    Select Case subconsole
+                        Case "sasplay"
+                            subconsole = "ss"
+                    End Select
+
+                    MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & subconsole & ".gif"), 32, 32, True))
                 Else
                     If UCase(FullGame(0).ToString).Contains(UCase(GSplit)) Then
                         allItems.Add(sLine)
@@ -975,7 +982,14 @@ Public Class MetroMed
     End Sub
 
     Public Function EmptyBoxart(gif As String)
-        Dim PathEmptyBox As String = MedExtra & "Resource\Logos\" & gif & ".png"
+
+        Dim subconsole As String = gif
+        Select Case subconsole
+            Case "sasplay"
+                subconsole = "ss"
+        End Select
+
+        Dim PathEmptyBox As String = MedExtra & "Resource\Logos\" & subconsole & ".png"
         If IO.File.Exists(PathEmptyBox) Then
             AniCover = PathEmptyBox
         Else
