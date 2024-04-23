@@ -1179,7 +1179,7 @@ Partial Class MetroMed
         Me.MetroButton16.Size = New System.Drawing.Size(26, 32)
         Me.MetroButton16.TabIndex = 15
         Me.MetroButton16.Tag = ""
-        Me.MetroToolTip1.SetToolTip(Me.MetroButton16, "  Default folder  ")
+        Me.MetroToolTip1.SetToolTip(Me.MetroButton16, "  CSV Games List  ")
         Me.MetroButton16.UseSelectable = True
         Me.MetroButton16.UseStyleColors = True
         '
@@ -1522,7 +1522,6 @@ Partial Class MetroMed
         '
         'OpenFileDialog1
         '
-        Me.OpenFileDialog1.Filter = "All supported file|*.cue;*.ccd;*.m3u"
         Me.OpenFileDialog1.RestoreDirectory = True
         '
         'Panel2

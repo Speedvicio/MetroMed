@@ -11,6 +11,7 @@ Public Class MetroMed
 
     Dim ButtonAnIndex, RichStep, SubStop As Integer, Arguments, FileParameter, vImage, cImage As String
     Dim NProcess, MednafenCore As String
+    Public FirstRun As Boolean = True
 
     Private Sub Form1_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         If File.Exists(MedExtra & "Mini.ini") Then WMetroMed()
@@ -224,11 +225,25 @@ Public Class MetroMed
     End Sub
 
     Private Sub MetroButton16_Click(sender As System.Object, e As System.EventArgs) Handles MetroButton16.Click
-        MednafenModule = "def"
-        If CheckBox4.Checked = True Then
-            PopulateGrid()
+        'MednafenModule = "def"
+        'If CheckBox4.Checked = True Then
+        'PopulateGrid()
+        'Else
+        'CountRows()
+        'End If
+
+        OpenFileDialog1.Title = "Select games CSV file list..."
+        OpenFileDialog1.Filter = "CSV Files|*.csv"
+        OpenFileDialog1.DefaultExt = ".csv"
+        OpenFileDialog1.InitialDirectory = MedExtra & "Scanned\"
+        If OpenFileDialog1.ShowDialog() = System.Windows.Forms.DialogResult.OK Then
+            MednafenModule = Path.GetFileNameWithoutExtension(OpenFileDialog1.FileName)
+            If CheckBox4.Checked = True Then
+                PopulateGrid()
+            Else
+                CountRows()
+            End If
         Else
-            CountRows()
         End If
     End Sub
 
@@ -772,6 +787,7 @@ Public Class MetroMed
             RichTextBox1.Visible = True
             RichTextBox1.Dock = DockStyle.Fill
             TableLayoutPanel1.Visible = True
+            If FirstRun = False Then CountRows()
         End If
     End Sub
 
