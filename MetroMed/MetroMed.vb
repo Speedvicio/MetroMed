@@ -885,6 +885,7 @@ Public Class MetroMed
         If File.Exists(MedExtra & "Scanned\" & MednafenModule & ".csv") Then
             csvList = MedExtra & "Scanned\" & MednafenModule & ".csv"
             ReadCsvList(MetroTextBox1.Text.Trim)
+            MetroGrid1.Sort(MetroGrid1.Columns(0), ComponentModel.ListSortDirection.Ascending)
         Else
             MetroTile1.Enabled = False
             MetroTile2.Enabled = False
