@@ -904,6 +904,63 @@ Public Class MetroMed
         End If
     End Sub
 
+    Private Function detect_icon(real_name) As String
+        Select Case real_name
+            Case "Apple II/II+"
+                detect_icon = "apple2"
+            Case "Nintendo - Game Boy", "Nintendo - Game Boy - Music Module"
+                detect_icon = "gb"
+            Case "Nintendo - Game Boy Color"
+                detect_icon = "gbc"
+            Case "Sega - Game Gear"
+                detect_icon = "gg"
+            Case "Nintendo - Game Boy Advance", "Nintendo - Game Boy Advance - Music Module"
+                detect_icon = "gba"
+            Case "Atari - Lynx"
+                detect_icon = "lynx"
+            Case "Sega - Mega Drive - Genesis", "Sega - 8/16 bit console - Music Module"
+                detect_icon = "md"
+            Case "SNK - Neo Geo Pocket"
+                detect_icon = "ngp"
+            Case "SNK - Neo Geo Pocket Color"
+                detect_icon = "ngpc"
+            Case "Nintendo Entertainment System", "Nintendo Entertainment System - Music Module"
+                detect_icon = "nes"
+            Case "Nintendo - Famicom Disk System"
+                detect_icon = "fds"
+            Case "PC Engine - TurboGrafx 16", "PC Engine - TurboGrafx 16 - Music Module"
+                detect_icon = "pce"
+            Case "Sega - Master System - Mark III"
+                detect_icon = "sms"
+            Case "Super Nintendo Entertainment System", "Super Nintendo - Music Module"
+                detect_icon = "snes"
+            Case "Sega Saturn", "Sega Saturn - Music Module"
+                detect_icon = "ss"
+            Case "Sega Arcade SCSP Player", "Sega Titan Video"
+                detect_icon = "arcade"
+            Case "Virtual Boy"
+                detect_icon = "vb"
+            Case "Bandai - WonderSwan", "Bandai - WonderSwan - Music Module"
+                detect_icon = "wswan"
+            Case "Bandai - WonderSwan Color"
+                detect_icon = "wswanc"
+            Case "TurboGrafx 16 (CD)"
+                detect_icon = "pcecd"
+            Case "PC-FX"
+                detect_icon = "pcfx"
+            Case Is = "SegaCD/MegaCD"
+                detect_icon = "mdcd"
+            Case Is = "Sony PlayStation", "PlayStation One - Music Module"
+                detect_icon = "psx"
+            Case Is = "Audio CD"
+                detect_icon = "cdplay"
+            Case Is = "Generic Zstd compressed file", "Sega Arcade SCSP Player"
+                detect_icon = "game"
+            Case Else
+                detect_icon = "unknow"
+        End Select
+    End Function
+
     Private Function ReadCsvList(GSplit) As String
 
         If File.Exists(csvList) Then
@@ -925,17 +982,17 @@ Public Class MetroMed
                 If GSplit = "" Then
                     allItems.Add(sLine)
 
-                    Dim subconsole As String = FullGame(6).ToString
+                    Dim subconsole As String = detect_icon(FullGame(5).ToString)
                     Select Case subconsole
                         Case "sasplay"
                             subconsole = "ss"
                     End Select
 
-                    MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & subconsole & ".gif"), 32, 32, True))
+                    MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & subconsole & ".ico"), 32, 32, True))
                 Else
                     If UCase(FullGame(0).ToString).Contains(UCase(GSplit)) Then
                         allItems.Add(sLine)
-                        MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & FullGame(6).ToString & ".gif"), 32, 32, True))
+                        MetroGrid1.Rows.Add(FullGame(0).ToString & " " & FullGame(2).ToString & " *** " & FullGame(8).ToString, GamesInfo.Resize(New Bitmap(MedExtra & "Resource\System\" & detect_icon(FullGame(5).ToString) & ".ico"), 32, 32, True))
                         'Exit For
                     End If
                 End If
