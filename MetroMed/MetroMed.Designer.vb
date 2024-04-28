@@ -39,6 +39,8 @@ Partial Class MetroMed
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.MetroGrid1 = New MetroFramework.Controls.MetroGrid()
+        Me.GameName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.GSystem = New System.Windows.Forms.DataGridViewImageColumn()
         Me.MetroContextMenu1 = New MetroFramework.Controls.MetroContextMenu(Me.components)
         Me.mPlay = New System.Windows.Forms.ToolStripMenuItem()
         Me.mNetPlay = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,6 +57,7 @@ Partial Class MetroMed
         Me.mCover = New System.Windows.Forms.ToolStripMenuItem()
         Me.mEffect = New System.Windows.Forms.ToolStripComboBox()
         Me.mPerformance = New System.Windows.Forms.ToolStripComboBox()
+        Me.mSpeed = New System.Windows.Forms.ToolStripComboBox()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mInput = New System.Windows.Forms.ToolStripMenuItem()
         Me.mGuiMode = New System.Windows.Forms.ToolStripMenuItem()
@@ -121,8 +124,6 @@ Partial Class MetroMed
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.TimerResize = New System.Windows.Forms.Timer(Me.components)
-        Me.GameName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.GSystem = New System.Windows.Forms.DataGridViewImageColumn()
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -375,19 +376,39 @@ Partial Class MetroMed
         Me.MetroGrid1.UseStyleColors = True
         Me.MetroGrid1.Visible = False
         '
+        'GameName
+        '
+        Me.GameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.GameName.DividerWidth = 3
+        Me.GameName.HeaderText = "Game Name"
+        Me.GameName.Name = "GameName"
+        Me.GameName.ReadOnly = True
+        Me.GameName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
+        '
+        'GSystem
+        '
+        Me.GSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.GSystem.DividerWidth = 3
+        Me.GSystem.HeaderText = "System"
+        Me.GSystem.Name = "GSystem"
+        Me.GSystem.ReadOnly = True
+        Me.GSystem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.GSystem.Width = 88
+        '
         'MetroContextMenu1
         '
         Me.MetroContextMenu1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MetroContextMenu1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.ToolStripSeparator2, Me.About})
         Me.MetroContextMenu1.Name = "MetroContextMenu1"
-        Me.MetroContextMenu1.Size = New System.Drawing.Size(158, 176)
+        Me.MetroContextMenu1.Size = New System.Drawing.Size(181, 198)
         Me.MetroToolTip1.SetToolTip(Me.MetroContextMenu1, "Open MedPad Input Configurator")
         '
         'mPlay
         '
         Me.mPlay.Name = "mPlay"
-        Me.mPlay.Size = New System.Drawing.Size(157, 22)
+        Me.mPlay.Size = New System.Drawing.Size(180, 22)
         Me.mPlay.Text = "&Play"
         Me.mPlay.ToolTipText = "Start Game"
         '
@@ -395,7 +416,7 @@ Partial Class MetroMed
         '
         Me.mNetPlay.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mNickname, Me.mServer, Me.mPort, Me.mGamekey, Me.mPassword, Me.mOnlinePlay})
         Me.mNetPlay.Name = "mNetPlay"
-        Me.mNetPlay.Size = New System.Drawing.Size(157, 22)
+        Me.mNetPlay.Size = New System.Drawing.Size(180, 22)
         Me.mNetPlay.Text = "&NetPlay"
         Me.mNetPlay.ToolTipText = "Start a Netplay session"
         '
@@ -439,13 +460,13 @@ Partial Class MetroMed
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(154, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
         '
         'mGuiTheme
         '
         Me.mGuiTheme.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmbTheme, Me.cmbStyle})
         Me.mGuiTheme.Name = "mGuiTheme"
-        Me.mGuiTheme.Size = New System.Drawing.Size(157, 22)
+        Me.mGuiTheme.Size = New System.Drawing.Size(180, 22)
         Me.mGuiTheme.Text = "&Theme"
         Me.mGuiTheme.ToolTipText = "Change GUI theme and style"
         '
@@ -467,9 +488,9 @@ Partial Class MetroMed
         '
         'mCover
         '
-        Me.mCover.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mEffect, Me.mPerformance})
+        Me.mCover.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mEffect, Me.mPerformance, Me.mSpeed})
         Me.mCover.Name = "mCover"
-        Me.mCover.Size = New System.Drawing.Size(157, 22)
+        Me.mCover.Size = New System.Drawing.Size(180, 22)
         Me.mCover.Text = "&Cover"
         Me.mCover.ToolTipText = "Select effect transictions for cover"
         '
@@ -479,6 +500,7 @@ Partial Class MetroMed
         Me.mEffect.Name = "mEffect"
         Me.mEffect.Size = New System.Drawing.Size(121, 23)
         Me.mEffect.Sorted = True
+        Me.mEffect.ToolTipText = "Select transiction effect"
         '
         'mPerformance
         '
@@ -487,33 +509,40 @@ Partial Class MetroMed
         Me.mPerformance.Size = New System.Drawing.Size(121, 23)
         Me.mPerformance.ToolTipText = "Select render image type"
         '
+        'mSpeed
+        '
+        Me.mSpeed.Items.AddRange(New Object() {"Low", "Mid", "High"})
+        Me.mSpeed.Name = "mSpeed"
+        Me.mSpeed.Size = New System.Drawing.Size(121, 23)
+        Me.mSpeed.ToolTipText = "Select speed render"
+        '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(154, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
         '
         'mInput
         '
         Me.mInput.Name = "mInput"
-        Me.mInput.Size = New System.Drawing.Size(157, 22)
+        Me.mInput.Size = New System.Drawing.Size(180, 22)
         Me.mInput.Text = "&Set Controller"
         '
         'mGuiMode
         '
         Me.mGuiMode.Name = "mGuiMode"
-        Me.mGuiMode.Size = New System.Drawing.Size(157, 22)
+        Me.mGuiMode.Size = New System.Drawing.Size(180, 22)
         Me.mGuiMode.Text = "&MedGui Reborn"
         Me.mGuiMode.ToolTipText = "Launch MedGui Reborn"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(154, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
         '
         'About
         '
         Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(157, 22)
+        Me.About.Size = New System.Drawing.Size(180, 22)
         Me.About.Text = "&About"
         Me.About.ToolTipText = "About MetroMed"
         '
@@ -1516,26 +1545,6 @@ Partial Class MetroMed
         '
         Me.TimerResize.Interval = 100000000
         '
-        'GameName
-        '
-        Me.GameName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.GameName.DividerWidth = 3
-        Me.GameName.HeaderText = "Game Name"
-        Me.GameName.Name = "GameName"
-        Me.GameName.ReadOnly = True
-        Me.GameName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic
-        '
-        'GSystem
-        '
-        Me.GSystem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.GSystem.DividerWidth = 3
-        Me.GSystem.HeaderText = "System"
-        Me.GSystem.Name = "GSystem"
-        Me.GSystem.ReadOnly = True
-        Me.GSystem.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.GSystem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.GSystem.Width = 88
-        '
         'MetroMed
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1671,4 +1680,5 @@ Partial Class MetroMed
     Friend WithEvents AnimationControl25 As AnimationControl
     Friend WithEvents GameName As DataGridViewTextBoxColumn
     Friend WithEvents GSystem As DataGridViewImageColumn
+    Friend WithEvents mSpeed As ToolStripComboBox
 End Class

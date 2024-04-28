@@ -4,7 +4,7 @@ Imports System.IO
 Module Preload
 
     Public MedPath, MedExtra, MednafenModule, AniTag, AniCover, Effect As String, AniBoxArt(23) As AnimationControl,
-        TotalRows, CurrPage, anyindex, NextPage, BoxResult, performance As Integer, TagSplit() As String, ReBitmap As Bitmap
+        TotalRows, CurrPage, anyindex, NextPage, BoxResult, performance As Integer, TagSplit() As String, ReBitmap As Bitmap, Speed As Decimal
 
     Public Sub LoadResource()
 

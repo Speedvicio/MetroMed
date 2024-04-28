@@ -868,6 +868,19 @@ Public Class MetroMed
         End Select
     End Sub
 
+    Private Sub mSpeed_IndexChanged(sender As Object, e As EventArgs) Handles mSpeed.SelectedIndexChanged
+        Select Case mSpeed.Text
+            Case "Low"
+                Speed = 1
+            Case "Mid"
+                Speed = 0.7
+            Case "High"
+                Speed = 0.4
+            Case Else
+                Speed = 0.7
+        End Select
+    End Sub
+
     Private Sub mServer_SelectedIndexChanged(sender As Object, e As EventArgs) Handles mServer.SelectedIndexChanged
         PopulateNetplay()
     End Sub
@@ -1032,6 +1045,7 @@ Public Class MetroMed
                 ResizeCover(AnimationControl25)
                 AnimationControl25.AnimatedImage = ReBitmap
                 AnimationControl25.Animate(performance)
+                AnimationControl25.AnimationSpeed = Speed
                 Exit For
             End If
         Next

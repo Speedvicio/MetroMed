@@ -16,11 +16,13 @@
             MetroMed.cmbStyle.SelectedIndex = iStyle
             MetroMed.mEffect.Text = RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Effect")
             MetroMed.mPerformance.Text = RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Performance")
+            MetroMed.mSpeed.Text = RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Speed")
             MetroMed.CheckBox1.CheckState = RIni.IniRead(MedExtra & "\Mini.ini", "General", "Fast_PCE")
             MetroMed.CheckBox2.CheckState = RIni.IniRead(MedExtra & "\Mini.ini", "General", "SNES_Faust")
             MednafenModule = RIni.IniRead(MedExtra & "\Mini.ini", "General", "Startup_Path")
             'CurrPage = RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Current_Page")
             If MetroMed.mPerformance.Text = "" Then MetroMed.mPerformance.Text = "Balanced" : performance = 30
+            If MetroMed.mSpeed.Text = "" Then MetroMed.mSpeed.Text = "Mid" : Speed = 0.7
             Dim iLayout As Integer
             iLayout = Val(RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Layout"))
             If iLayout = 1 Then
@@ -45,6 +47,7 @@
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Style", MetroMed.cmbStyle.SelectedIndex)
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Effect", MetroMed.mEffect.Text)
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Performance", MetroMed.mPerformance.Text)
+        WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Speed", MetroMed.mSpeed.Text)
         WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Layout", MetroMed.CheckBox3.CheckState)
         'WIni.IniWrite(MedExtra & "\Mini.ini", "MetroMed", "Current_Page", MetroLabel1.Text)
         WIni.IniWrite(MedExtra & "\Mini.ini", "General", "Fast_PCE", MetroMed.CheckBox1.CheckState)
