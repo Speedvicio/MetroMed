@@ -523,7 +523,57 @@ Public Class MetroMed
         AddArguments()
     End Sub
 
+    Private Declare Function mciSendString Lib "winmm.dll" Alias "mciSendStringA" (ByVal lpstrCommand As String, ByVal lpstrReturnString As String, ByVal uReturnLength As Integer, ByVal hwndCallback As Integer) As Integer
+    Const WS_CHILD As Integer = &H40000000
+
+    Private Sub PlayMedia(ByRef FileName As String, ByVal Window As Control)
+
+        FileName = Chr(34) & FileName & Chr(34)
+        mciSendString("open " & FileName & " type MPEGVideo alias 0 wait parent " & Window.Handle.ToInt32 & " style " & CStr(WS_CHILD), Nothing, 0, 0)
+        'mciSendString("put 0 window at 0 0 " & CStr(PixelToTwip(Window.ClientRectangle.Width) / 15) & " " & CStr(PixelToTwip(Window.ClientRectangle.Height) / 15), Nothing, 0, 0)
+        SizeVideoWindow(Window.Size)
+        mciSendString("play 0 repeat", Nothing, 0, 0)
+
+    End Sub
+
+    Private Sub SizeVideoWindow(maxSize As Size)
+
+        Dim ActualMovieSize As Size = getDefaultSize()
+        Dim AspectRatio As Single = ActualMovieSize.Width / ActualMovieSize.Height
+
+        Dim iLeft As Integer = 0
+        Dim iTop As Integer = 0
+
+        Dim newWidth As Integer = maxSize.Width
+        Dim newHeight As Integer = (newWidth \ AspectRatio) * 2
+
+        If newHeight > maxSize.Height Then
+            newHeight = maxSize.Height / 2
+            newWidth = newWidth \ AspectRatio
+        End If
+
+        iLeft = (maxSize.Width - newWidth) \ 2
+        iTop = (maxSize.Height - newHeight) \ 2
+
+        mciSendString("put 0 window at " & iLeft & " " & iTop & " " & newWidth & " " & newHeight, 0, 0, 0)
+
+    End Sub
+
+    Public Function getDefaultSize() As Size
+        'Returns the default width, height the movie
+        Dim c_Data As String = Space(128)
+        mciSendString("where 0 source", c_Data, 128, 0)
+        Dim parts() As String = Split(c_Data, " ")
+
+        Return New Size(CInt(parts(2)), CInt(parts(3)))
+    End Function
+
+    Private Function PixelToTwip(ByVal Pixel As Integer) As Double
+        Return Pixel * 15
+    End Function
+
     Private Sub RetrieveSnap()
+        mciSendString("Close 0", Nothing, 0, 0)
         PictureBox1.Image = Nothing
         PictureBox2.Image = Nothing
         RichTextBox1.Clear()
@@ -540,12 +590,30 @@ Public Class MetroMed
             'Else
             'PictureBox1.Image = Nothing
         End If
+
+        Dim Status As New Dictionary(Of String, Integer)
+        Status.Add(".mov", 0)
+        Status.Add(".mp4", 1)
+        Status.Add(".avi", 2)
+        Status.Add(".webm", 3)
+
+        Dim movie As String
+        For Each pair As KeyValuePair(Of String, Integer) In Status
+            If File.Exists((MedExtra & "Media\Movie\" & TagSplit(0) & pair.Key).ToLower) Then
+                movie = Path.Combine(MedExtra & "Media\Movie\", TagSplit(0) & pair.Key)
+                PlayMedia(movie, PictureBox2)
+                'Exit For
+                Exit Sub
+            End If
+        Next
+
         If File.Exists(MedExtra & "Snaps\" & TagSplit(5) & "\CRC_Snaps\" & Trim(TagSplit(8)) & ".png") Then
             snap = New Bitmap(MedExtra & "Snaps\" & TagSplit(5) & "\CRC_Snaps\" & Trim(TagSplit(8)) & ".png")
             PictureBox2.Image = DirectCast(GamesInfo.Resize(snap, PictureBox2.Width, PictureBox2.Height, True), Image)
             'Else
             'PictureBox2.Image = Nothing
         End If
+
     End Sub
 
     Private Sub AddArguments()
@@ -1093,6 +1161,10 @@ Public Class MetroMed
                 PopulateGrid()
             End If
         End If
+    End Sub
+
+    Private Sub MetroMed_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        mciSendString("Close 0", Nothing, 0, 0)
     End Sub
 
 End Class

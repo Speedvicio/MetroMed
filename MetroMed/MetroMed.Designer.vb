@@ -301,6 +301,7 @@ Partial Class MetroMed
         Me.PictureBox2.Location = New System.Drawing.Point(140, 3)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(132, 97)
+        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
         '
@@ -311,6 +312,7 @@ Partial Class MetroMed
         Me.PictureBox1.Location = New System.Drawing.Point(3, 3)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(131, 97)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -402,13 +404,13 @@ Partial Class MetroMed
         Me.MetroContextMenu1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.ToolStripSeparator2, Me.About})
         Me.MetroContextMenu1.Name = "MetroContextMenu1"
-        Me.MetroContextMenu1.Size = New System.Drawing.Size(181, 198)
+        Me.MetroContextMenu1.Size = New System.Drawing.Size(158, 176)
         Me.MetroToolTip1.SetToolTip(Me.MetroContextMenu1, "Open MedPad Input Configurator")
         '
         'mPlay
         '
         Me.mPlay.Name = "mPlay"
-        Me.mPlay.Size = New System.Drawing.Size(180, 22)
+        Me.mPlay.Size = New System.Drawing.Size(157, 22)
         Me.mPlay.Text = "&Play"
         Me.mPlay.ToolTipText = "Start Game"
         '
@@ -416,7 +418,7 @@ Partial Class MetroMed
         '
         Me.mNetPlay.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mNickname, Me.mServer, Me.mPort, Me.mGamekey, Me.mPassword, Me.mOnlinePlay})
         Me.mNetPlay.Name = "mNetPlay"
-        Me.mNetPlay.Size = New System.Drawing.Size(180, 22)
+        Me.mNetPlay.Size = New System.Drawing.Size(157, 22)
         Me.mNetPlay.Text = "&NetPlay"
         Me.mNetPlay.ToolTipText = "Start a Netplay session"
         '
@@ -460,13 +462,13 @@ Partial Class MetroMed
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(154, 6)
         '
         'mGuiTheme
         '
         Me.mGuiTheme.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmbTheme, Me.cmbStyle})
         Me.mGuiTheme.Name = "mGuiTheme"
-        Me.mGuiTheme.Size = New System.Drawing.Size(180, 22)
+        Me.mGuiTheme.Size = New System.Drawing.Size(157, 22)
         Me.mGuiTheme.Text = "&Theme"
         Me.mGuiTheme.ToolTipText = "Change GUI theme and style"
         '
@@ -490,7 +492,7 @@ Partial Class MetroMed
         '
         Me.mCover.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mEffect, Me.mPerformance, Me.mSpeed})
         Me.mCover.Name = "mCover"
-        Me.mCover.Size = New System.Drawing.Size(180, 22)
+        Me.mCover.Size = New System.Drawing.Size(157, 22)
         Me.mCover.Text = "&Cover"
         Me.mCover.ToolTipText = "Select effect transictions for cover"
         '
@@ -519,30 +521,30 @@ Partial Class MetroMed
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(154, 6)
         '
         'mInput
         '
         Me.mInput.Name = "mInput"
-        Me.mInput.Size = New System.Drawing.Size(180, 22)
+        Me.mInput.Size = New System.Drawing.Size(157, 22)
         Me.mInput.Text = "&Set Controller"
         '
         'mGuiMode
         '
         Me.mGuiMode.Name = "mGuiMode"
-        Me.mGuiMode.Size = New System.Drawing.Size(180, 22)
+        Me.mGuiMode.Size = New System.Drawing.Size(157, 22)
         Me.mGuiMode.Text = "&MedGui Reborn"
         Me.mGuiMode.ToolTipText = "Launch MedGui Reborn"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(177, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(154, 6)
         '
         'About
         '
         Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(180, 22)
+        Me.About.Size = New System.Drawing.Size(157, 22)
         Me.About.Text = "&About"
         Me.About.ToolTipText = "About MetroMed"
         '
