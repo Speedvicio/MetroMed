@@ -58,6 +58,9 @@ Partial Class MetroMed
         Me.mEffect = New System.Windows.Forms.ToolStripComboBox()
         Me.mPerformance = New System.Windows.Forms.ToolStripComboBox()
         Me.mSpeed = New System.Windows.Forms.ToolStripComboBox()
+        Me.mImport = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BoxartToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SnapMovieToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mInput = New System.Windows.Forms.ToolStripMenuItem()
         Me.mGuiMode = New System.Windows.Forms.ToolStripMenuItem()
@@ -402,9 +405,9 @@ Partial Class MetroMed
         '
         Me.MetroContextMenu1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MetroContextMenu1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.ToolStripSeparator2, Me.About})
+        Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.mImport, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.ToolStripSeparator2, Me.About})
         Me.MetroContextMenu1.Name = "MetroContextMenu1"
-        Me.MetroContextMenu1.Size = New System.Drawing.Size(158, 176)
+        Me.MetroContextMenu1.Size = New System.Drawing.Size(158, 198)
         Me.MetroToolTip1.SetToolTip(Me.MetroContextMenu1, "Open MedPad Input Configurator")
         '
         'mPlay
@@ -517,6 +520,26 @@ Partial Class MetroMed
         Me.mSpeed.Name = "mSpeed"
         Me.mSpeed.Size = New System.Drawing.Size(121, 23)
         Me.mSpeed.ToolTipText = "Select speed render"
+        '
+        'mImport
+        '
+        Me.mImport.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BoxartToolStripMenuItem, Me.SnapMovieToolStripMenuItem})
+        Me.mImport.Name = "mImport"
+        Me.mImport.Size = New System.Drawing.Size(157, 22)
+        Me.mImport.Text = "&Import"
+        Me.mImport.ToolTipText = "Import Boxart or Snap Movie from file"
+        '
+        'BoxartToolStripMenuItem
+        '
+        Me.BoxartToolStripMenuItem.Name = "BoxartToolStripMenuItem"
+        Me.BoxartToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.BoxartToolStripMenuItem.Text = "&Boxart"
+        '
+        'SnapMovieToolStripMenuItem
+        '
+        Me.SnapMovieToolStripMenuItem.Name = "SnapMovieToolStripMenuItem"
+        Me.SnapMovieToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.SnapMovieToolStripMenuItem.Text = "&Snap Movie"
         '
         'ToolStripSeparator3
         '
@@ -1560,7 +1583,7 @@ Partial Class MetroMed
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "MetroMed"
-        Me.Tag = "Beta 11"
+        Me.Tag = "Beta 12"
         Me.Text = "MetroMed"
         CType(Me.MetroStyleManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
@@ -1683,4 +1706,7 @@ Partial Class MetroMed
     Friend WithEvents GameName As DataGridViewTextBoxColumn
     Friend WithEvents GSystem As DataGridViewImageColumn
     Friend WithEvents mSpeed As ToolStripComboBox
+    Friend WithEvents mImport As ToolStripMenuItem
+    Friend WithEvents BoxartToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SnapMovieToolStripMenuItem As ToolStripMenuItem
 End Class

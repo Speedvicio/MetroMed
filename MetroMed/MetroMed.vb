@@ -605,10 +605,14 @@ Public Class MetroMed
         Status.Add(".avi", 2)
         Status.Add(".webm", 3)
 
+        If Directory.Exists(Path.Combine(MedExtra & "Media\Movie\", TagSplit(5))) = False Then
+            Directory.CreateDirectory(Path.Combine(MedExtra & "Media\Movie\", TagSplit(5)))
+        End If
+
         Dim movie As String
         For Each pair As KeyValuePair(Of String, Integer) In Status
-            If File.Exists((MedExtra & "Media\Movie\" & TagSplit(0) & pair.Key).ToLower) Then
-                movie = Path.Combine(MedExtra & "Media\Movie\", TagSplit(0) & pair.Key)
+            If File.Exists((MedExtra & "Media\Movie\" & TagSplit(5) & "\" & TagSplit(0) & pair.Key).ToLower) Then
+                movie = Path.Combine(MedExtra & "Media\Movie\", TagSplit(5) & "\" & TagSplit(0) & pair.Key)
                 PlayMedia(movie, PictureBox2)
                 'Exit For
                 Exit Sub
@@ -1107,6 +1111,44 @@ Public Class MetroMed
             AniCover = MedExtra & "BoxArt\" & fullgame5 & "\" & fullgame0 & ".png"
         Else
             SearchScrape(fullgame5, fullgame0, gif)
+        End If
+    End Sub
+
+    Private Sub BoxartToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BoxartToolStripMenuItem.Click
+        Dim fdlg As OpenFileDialog = New OpenFileDialog()
+        Dim pathimage As String = Path.Combine(MedExtra & "BoxArt\", TagSplit(5))
+        fdlg.Title = "Select an image"
+        fdlg.Filter = "All supported format (*.png,*.jpg)|*.png;*.jpg"
+        fdlg.FilterIndex = 1
+        fdlg.RestoreDirectory = True
+        If fdlg.ShowDialog() = DialogResult.OK Then
+            If Directory.Exists(pathimage) = False Then
+                Directory.CreateDirectory(pathimage)
+            End If
+            pathimage = Path.Combine(pathimage, TagSplit(0) & Path.GetExtension(fdlg.FileName))
+            File.Copy(fdlg.FileName, pathimage, True)
+            If CheckBox4.Checked = True Then
+                extractAnitag()
+            Else
+                AniCover = pathimage
+            End If
+        End If
+    End Sub
+
+    Private Sub SnapMovieToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SnapMovieToolStripMenuItem.Click
+        Dim fdlg As OpenFileDialog = New OpenFileDialog()
+        Dim pathimage As String = Path.Combine(MedExtra & "Media\Movie\", TagSplit(5))
+        fdlg.Title = "Select an Snap Movie"
+        fdlg.Filter = "All supported format (*.mov,*.avi,*.mp4,*.webm)|*.mov;*.avi;*.mp4;*.webm"
+        fdlg.FilterIndex = 1
+        fdlg.RestoreDirectory = True
+        If fdlg.ShowDialog() = DialogResult.OK Then
+            If Directory.Exists(pathimage) = False Then
+                Directory.CreateDirectory(pathimage)
+            End If
+            pathimage = Path.Combine(pathimage, TagSplit(0) & Path.GetExtension(fdlg.FileName))
+            File.Copy(fdlg.FileName, pathimage, True)
+            PlayMedia(pathimage, PictureBox2)
         End If
     End Sub
 
