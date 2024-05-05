@@ -539,21 +539,29 @@ Public Class MetroMed
     Private Sub SizeVideoWindow(maxSize As Size)
 
         Dim ActualMovieSize As Size = getDefaultSize()
-        Dim AspectRatio As Single = ActualMovieSize.Width / ActualMovieSize.Height
+        Dim detectL As String = ActualMovieSize.Width
 
-        Dim iLeft As Integer = 0
-        Dim iTop As Integer = 0
-
-        Dim newWidth As Integer = maxSize.Width
-        Dim newHeight As Integer = (newWidth \ AspectRatio) * 2
-
-        If newHeight > maxSize.Height Then
-            newHeight = maxSize.Height / 2
-            newWidth = newWidth \ AspectRatio
+        If detectL.Length > 3 Then
+            detectL = detectL.Substring(detectL.Length - 3)
+            If detectL < 100 Then
+                ActualMovieSize.Width = detectL * 10
+            Else
+                ActualMovieSize.Width = detectL
+            End If
         End If
 
-        iLeft = (maxSize.Width - newWidth) \ 2
-        iTop = (maxSize.Height - newHeight) \ 2
+        Dim AspectRatio As Single = ActualMovieSize.Width / maxSize.Width
+        Dim newHeight As Integer
+        Dim newWidth As Integer = maxSize.Width
+
+        newHeight = (maxSize.Height / AspectRatio) * (ActualMovieSize.Width / ActualMovieSize.Height)
+
+        If ActualMovieSize.Height < newHeight Then
+            newHeight -= newHeight - ActualMovieSize.Height
+        End If
+
+        Dim iLeft As Integer = (maxSize.Width - newWidth) \ 2
+        Dim iTop As Integer = (maxSize.Height - newHeight) \ 2
 
         mciSendString("put 0 window at " & iLeft & " " & iTop & " " & newWidth & " " & newHeight, 0, 0, 0)
 
