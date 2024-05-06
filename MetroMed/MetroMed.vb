@@ -529,7 +529,7 @@ Public Class MetroMed
     Private Sub PlayMedia(ByRef FileName As String, ByVal Window As Control)
 
         FileName = Chr(34) & FileName & Chr(34)
-        mciSendString("open " & FileName & " type MPEGVideo alias 0 wait parent " & Window.Handle.ToInt32 & " style " & CStr(WS_CHILD), Nothing, 0, 0)
+        mciSendString("open " & FileName & " type MPEGVideo alias 0 parent " & Window.Handle.ToInt32 & " style " & CStr(WS_CHILD), Nothing, 0, 0)
         'mciSendString("put 0 window at 0 0 " & CStr(PixelToTwip(Window.ClientRectangle.Width) / 15) & " " & CStr(PixelToTwip(Window.ClientRectangle.Height) / 15), Nothing, 0, 0)
         SizeVideoWindow(Window.Size)
         mciSendString("play 0 repeat", Nothing, 0, 0)
@@ -696,6 +696,7 @@ Public Class MetroMed
     End Sub
 
     Public Sub StartProcess()
+        mciSendString("Close 0", Nothing, 0, 0)
         Dim execute As New Process
         Try
             With execute.StartInfo
