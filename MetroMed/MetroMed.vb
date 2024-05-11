@@ -527,7 +527,7 @@ Public Class MetroMed
     Const WS_CHILD As Integer = &H40000000
 
     Private Sub PlayMedia(ByRef FileName As String, ByVal Window As Control)
-
+        PictureBox2.Image = Nothing
         FileName = Chr(34) & FileName & Chr(34)
         mciSendString("open " & FileName & " type MPEGVideo alias 0 parent " & Window.Handle.ToInt32 & " style " & CStr(WS_CHILD), Nothing, 0, 0)
         'mciSendString("put 0 window at 0 0 " & CStr(PixelToTwip(Window.ClientRectangle.Width) / 15) & " " & CStr(PixelToTwip(Window.ClientRectangle.Height) / 15), Nothing, 0, 0)
