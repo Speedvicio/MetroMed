@@ -696,6 +696,11 @@ Public Class MetroMed
     End Sub
 
     Public Sub StartProcess()
+        If File.Exists(TagSplit(4)) = False Then
+            MetroMessageBox.Show(Me, Path.GetFileNameWithoutExtension(TagSplit(4)) & " do not exist", "Can't run the game...", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Exit Sub
+        End If
+
         mciSendString("Close 0", Nothing, 0, 0)
         Dim execute As New Process
         Try
@@ -756,7 +761,8 @@ Public Class MetroMed
             KillProcess()
             Process.Start(MedExtra & "\Plugins\Controller\MedPad.exe", parameter)
         Else
-            MsgBox("MedPad Not detected!", vbAbort + vbExclamation, "MedPad Not detected...")
+            MetroMessageBox.Show(Me, "MedPad Not detected!", "You can't configure controllers by MedPad." & vbCrLf &
+                "Use Mednafen function by pressing ALT SHIT 1 during emulation", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
         parameter = ""
     End Sub
@@ -768,7 +774,7 @@ Public Class MetroMed
             KillProcess()
             Process.Start(Application.StartupPath & "\MedGuiR.exe", parameter)
         Else
-            MetroMessageBox.Show(Me, "MedGui Reborn Not detected!", "MedGuiR Not detected...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+            MetroMessageBox.Show(Me, "MedGui Reborn Not detected!", "MedGuiR Not detected...", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
         MednafenModule = ""
     End Sub
