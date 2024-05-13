@@ -5,8 +5,8 @@ A GUI/Appendix for [MedGui Reborn](https://github.com/Speedvicio/MedGuiReborn) w
 
 ## Screenshot
 <p align="center">
-<a href="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed1.jpg/1"><img src="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed1.jpg/1" width="300" /></a><br>
-<a href="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed2.jpg/1"><img src="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed2.jpg/1" width="300" /></a><br>
+<a href="https://sourceforge.net/p/medguireborn/screenshot/Metromed1-6c90e82a.jpg"><img src="https://sourceforge.net/p/medguireborn/screenshot/Metromed1-6c90e82a.jpg" heigth="200" /></a><br><br>
+<a href="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed2.jpg/1"><img src="https://a.fsdn.com/con/app/proj/medguireborn/screenshots/MetroMed2.jpg/1" heigth="200" /></a><br>
 </p>
 
 ## Instruction
