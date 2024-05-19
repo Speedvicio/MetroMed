@@ -179,7 +179,7 @@ Re_Try:
 
                 AniBoxArt(anyindex).Tag = AniTag & "|" & anyindex
 
-                MetroMed.MetroToolTip1.SetToolTip(AniBoxArt(anyindex), "     " & cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & TagSplit(2) & "     " & vbCrLf &
+                MetroMed.MetroToolTip1.SetToolTip(AniBoxArt(anyindex), "     " & cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & Replace(TagSplit(2).Trim, "?", "") & "     " & vbCrLf &
                         TagSplit(5).Trim)
                 AniCover = MedExtra & "BoxArt\" & TagSplit(5) & "\" & TagSplit(0) & ".png"
 

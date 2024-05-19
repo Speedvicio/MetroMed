@@ -400,7 +400,7 @@ Public Class MetroMed
             Path.GetExtension(vImage) & "|00000000|"
             AniBoxArt(0).Tag = AniTag & "|0"
             SplitTag()
-            MetroToolTip1.SetToolTip(AniBoxArt(0), "     " & cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & TagSplit(2) & "     " &
+            MetroToolTip1.SetToolTip(AniBoxArt(0), "     " & cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & Replace(TagSplit(2).Trim, "?", "") & "     " &
  vbCrLf & TagSplit(5).Trim)
 
             'AniCover = MedExtra & "BoxArt\" & TagSplit(5) & "\" & TagSplit(0) & ".png"
@@ -589,7 +589,7 @@ Public Class MetroMed
         If AniTag = "" Then Exit Sub
         SplitTag()
         ReadXml()
-        MetroLabel3.Text = cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & TagSplit(2) 'MetroToolTip1.GetToolTip(b).Trim
+        MetroLabel3.Text = cleanpsx(RemoveAmpersand(TagSplit(0))) & " " & Replace(TagSplit(2).Trim, "?", "") 'MetroToolTip1.GetToolTip(b).Trim
 
         Dim title, snap As Bitmap
         If File.Exists(MedExtra & "Snaps\" & TagSplit(5) & "\CRC_Titles\" & Trim(TagSplit(8)) & ".png") Then
@@ -604,6 +604,7 @@ Public Class MetroMed
         Status.Add(".mp4", 1)
         Status.Add(".avi", 2)
         Status.Add(".webm", 3)
+        Status.Add(".ogv", 4)
 
         If Directory.Exists(Path.Combine(MedExtra & "Media\Movie\", TagSplit(5))) = False Then
             Directory.CreateDirectory(Path.Combine(MedExtra & "Media\Movie\", TagSplit(5)))
@@ -1146,7 +1147,7 @@ Public Class MetroMed
         Dim fdlg As OpenFileDialog = New OpenFileDialog()
         Dim pathimage As String = Path.Combine(MedExtra & "Media\Movie\", TagSplit(5))
         fdlg.Title = "Select an Snap Movie"
-        fdlg.Filter = "All supported format (*.mov,*.avi,*.mp4,*.webm)|*.mov;*.avi;*.mp4;*.webm"
+        fdlg.Filter = "All supported format (*.mov,*.avi,*.mp4,*.webm,*.ogv)|*.mov;*.avi;*.mp4;*.webm;*.ogv"
         fdlg.FilterIndex = 1
         fdlg.RestoreDirectory = True
         If fdlg.ShowDialog() = DialogResult.OK Then
