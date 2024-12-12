@@ -697,8 +697,8 @@ Public Class MetroMed
     End Sub
 
     Public Sub StartProcess()
-        If File.Exists(TagSplit(4)) = False Then
-            MetroMessageBox.Show(Me, Path.GetFileNameWithoutExtension(TagSplit(4)) & " do not exist", "Can't run the game...", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        If File.Exists(FileParameter) = False Then
+            MetroMessageBox.Show(Me, Path.GetFileNameWithoutExtension(FileParameter) & " do not exist", "Can't run the game...", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Exit Sub
         End If
 
