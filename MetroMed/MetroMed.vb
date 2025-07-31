@@ -862,6 +862,7 @@ Public Class MetroMed
             MetroGrid1.Visible = True
             PopulateGrid()
         End If
+        ColorCheck()
     End Sub
 
     Private Sub CheckBox3_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox3.CheckedChanged
@@ -877,18 +878,19 @@ Public Class MetroMed
             TableLayoutPanel1.Visible = True
             If FirstRun = False Then CountRows()
         End If
+        ColorCheck()
     End Sub
 
     Private Sub CheckBox3_Click(sender As Object, e As EventArgs) Handles CheckBox3.Click
         CheckBox3.Checked = True
         CheckBox4.Checked = False
-        ColorCheck()
+        'ColorCheck()
     End Sub
 
     Private Sub CheckBox4_Click(sender As Object, e As EventArgs) Handles CheckBox4.Click
         CheckBox4.Checked = True
         CheckBox3.Checked = False
-        ColorCheck()
+        'ColorCheck()
     End Sub
 
     Private Sub MetroTextBox1_KeyUp(sender As Object, e As KeyEventArgs) Handles MetroTextBox1.KeyUp
