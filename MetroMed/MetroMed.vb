@@ -515,6 +515,8 @@ Public Class MetroMed
 
         RetrieveSnap()
 
+        If TagSplit Is Nothing Then Exit Sub
+
         If (TagSplit.Length - 1) = 10 Then
             ButtonAnIndex = TagSplit(10)
             AniBoxArt(ButtonAnIndex).Animate(performance)
@@ -1060,7 +1062,7 @@ Public Class MetroMed
             Case Is = "Generic Zstd compressed file", "Sega Arcade SCSP Player"
                 detect_icon = "game"
             Case Else
-                detect_icon = "unknow"
+                detect_icon = "unknown"
         End Select
     End Function
 
