@@ -1,6 +1,10 @@
 ﻿Imports System.Drawing
+Imports System.Drawing.Design
 Imports System.IO
+Imports System.IO.Compression
+Imports System.Runtime.CompilerServices
 Imports System.Runtime.InteropServices
+Imports System.Runtime.Remoting.Contexts
 Imports MetroFramework
 
 Public Class MetroMed
@@ -24,8 +28,16 @@ Public Class MetroMed
 
         If File.Exists(Application.StartupPath & "\MedGuiR.exe") = False Then
             existMedGuiR = False
+            mGuiMode.Enabled = False
         Else
             existMedGuiR = True
+            mGuiMode.Enabled = True
+        End If
+
+        If File.Exists(Application.StartupPath & "\MedGuiR CSV Creator.exe") = False Then
+            mCSV.Enabled = False
+        Else
+            mCSV.Enabled = True
         End If
 
         AniBoxArt(0) = AnimationControl1
@@ -710,6 +722,25 @@ Public Class MetroMed
             Exit Sub
         End If
 
+        Dim extFile As String = Path.GetExtension(FileParameter)
+
+        Select Case LCase(extFile)
+            Case ".zip", ".toc", ".cue", ".ccd", ".m3u"
+            Case Else
+                If existMedGuiR = True Then
+                    Dim risp As String
+                    risp = MetroMessageBox.Show(Me, UCase(Path.GetExtension(FileParameter)) & " file is not supported by mednafen" & vbCrLf &
+                                                "I can try to load it by MedGuiR", "Can't run the game...", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                    If risp = vbOK Then
+                        mGuiMode.PerformClick()
+                        Exit Sub
+                    End If
+                Else
+                    MetroMessageBox.Show(Me, UCase(Path.GetExtension(FileParameter)) & " file is not supported by mednafen", "Can't run the game...", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    Exit Sub
+                End If
+        End Select
+
         mciSendString("Close 0", Nothing, 0, 0)
         Dim execute As New Process
         Try
@@ -1009,9 +1040,18 @@ Public Class MetroMed
                     Exit Sub
             End Select
 
-            Dim risp As String = MetroFramework.MetroMessageBox.Show(Me, "No Prescanned files found!" & vbCrLf & "Do you want to open MedGuiR to do a prescan?",
+            Dim risp As String
+            If existMedGuiR = True Then
+                risp = MetroMessageBox.Show(Me, "No Prescanned files found!" & vbCrLf & "Do you want to open MedGuiR to do a prescan?",
                                                 "No file " & MednafenModule & ".csv found...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If risp = vbYes Then SendFolder() Else MednafenModule = ""
+                If risp = vbYes Then SendFolder() Else MednafenModule = ""
+            ElseIf File.Exists(Application.StartupPath & "\MedGuiR CSV Creator.exe") Then
+                risp = MetroMessageBox.Show(Me, "No Prescanned files found!" & vbCrLf & "Do you want to open MedGuiR CSV Creator to do a prescan?",
+                                                "No file " & MednafenModule & ".csv found...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                If risp = vbYes Then Process.Start(Application.StartupPath & "\MedGuiR CSV Creator.exe")
+            Else
+                MetroMessageBox.Show(Me, "No Prescanned files found!", "No file " & MednafenModule & ".csv found...", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
         End If
     End Sub
 
@@ -1068,7 +1108,7 @@ Public Class MetroMed
             Case Is = "Generic Zstd compressed file", "Sega Arcade SCSP Player"
                 detect_icon = "game"
             Case Else
-                detect_icon = "unknown"
+                detect_icon = "unknow"
         End Select
     End Function
 

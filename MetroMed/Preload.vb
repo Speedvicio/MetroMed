@@ -94,9 +94,6 @@ Module Preload
                     Exit Sub
             End Select
 
-            Dim risp As String = MetroFramework.MetroMessageBox.Show(MetroMed, "No Prescanned files found!" & vbCrLf & "Do you want to open MedGuiR to do a prescan?",
-                                                "No file " & MednafenModule & ".csv found...", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-            If risp = vbYes Then MetroMed.SendFolder() Else MednafenModule = ""
         End If
     End Sub
 

@@ -9,6 +9,7 @@ Module ManageIni
             Dim iTheme, iStyle As String
             MedPath = RIni.IniRead(MedExtra & "\Mini.ini", "General", "Mednafen_path")
             If MedPath = "" Then
+                MetroMed.OpenFileDialog1.InitialDirectory = Application.StartupPath
                 MetroMed.OpenFileDialog1.Filter = "Mednafen Executable|mednafen.exe|All Files|*.*"
                 MetroMed.OpenFileDialog1.Title = "Select Mednafen Executable"
                 If MetroMed.OpenFileDialog1.ShowDialog() = DialogResult.OK Then
