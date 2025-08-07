@@ -1,4 +1,6 @@
-﻿Module ManageIni
+﻿Imports System.IO
+
+Module ManageIni
 
     Public Sub RMetroMed()
 
@@ -6,6 +8,16 @@
             Dim RIni As New Ini
             Dim iTheme, iStyle As String
             MedPath = RIni.IniRead(MedExtra & "\Mini.ini", "General", "Mednafen_path")
+            If MedPath = "" Then
+                MetroMed.OpenFileDialog1.Filter = "Mednafen Executable|mednafen.exe|All Files|*.*"
+                MetroMed.OpenFileDialog1.Title = "Select Mednafen Executable"
+                If MetroMed.OpenFileDialog1.ShowDialog() = DialogResult.OK Then
+                    MedPath = Path.GetDirectoryName(MetroMed.OpenFileDialog1.FileName)
+                    RIni.IniWrite(MedExtra & "\Mini.ini", "General", "Mednafen_path", MedPath)
+                Else
+                    MsgBox("You must select the Mednafen executable to continue.", MsgBoxStyle.Critical, "Error")
+                End If
+            End If
             If MedPath.StartsWith("..\") Then MedPath = Replace(MedPath, "..", Application.StartupPath)
             'Form1.GuiMode.Text = RIni.IniRead(MedExtra & "\Mini.ini", "General", "GUi_Mode")
             iTheme = Val(RIni.IniRead(MedExtra & "\Mini.ini", "MetroMed", "Theme"))

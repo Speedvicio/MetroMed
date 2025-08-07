@@ -12,6 +12,7 @@ Public Class MetroMed
     Dim ButtonAnIndex, RichStep, SubStop As Integer, Arguments, FileParameter, vImage, cImage As String
     Dim NProcess, MednafenCore As String
     Public FirstRun As Boolean = True
+    Public existMedGuiR As Boolean
 
     Private Sub Form1_FormClosed(sender As Object, e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         If File.Exists(MedExtra & "Mini.ini") Then WMetroMed()
@@ -22,10 +23,9 @@ Public Class MetroMed
         Me.Text = "MetroMed " & Me.Tag
 
         If File.Exists(Application.StartupPath & "\MedGuiR.exe") = False Then
-            MetroMessageBox.Show(Me, "Unable to start MedGui Reborn" & vbCrLf &
-                                 "You need to put MetroMed in the same path of MedGuiR.exe", "Process Error", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-            Me.Close()
-            Exit Sub
+            existMedGuiR = False
+        Else
+            existMedGuiR = True
         End If
 
         AniBoxArt(0) = AnimationControl1
@@ -55,6 +55,12 @@ Public Class MetroMed
 
         LoadResource()
         RMetroMed()
+
+        If MedPath.Trim = "" Then
+            Me.Close()
+            Exit Sub
+        End If
+
         MetroListServer_reload()
         ParseMednafenConfig()
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
