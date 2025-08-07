@@ -64,6 +64,7 @@ Partial Class MetroMed
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.mInput = New System.Windows.Forms.ToolStripMenuItem()
         Me.mGuiMode = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mCSV = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.About = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
@@ -405,15 +406,15 @@ Partial Class MetroMed
         '
         Me.MetroContextMenu1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MetroContextMenu1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.mImport, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.ToolStripSeparator2, Me.About})
+        Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.mImport, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.mCSV, Me.ToolStripSeparator2, Me.About})
         Me.MetroContextMenu1.Name = "MetroContextMenu1"
-        Me.MetroContextMenu1.Size = New System.Drawing.Size(158, 198)
+        Me.MetroContextMenu1.Size = New System.Drawing.Size(190, 242)
         Me.MetroToolTip1.SetToolTip(Me.MetroContextMenu1, "Open MedPad Input Configurator")
         '
         'mPlay
         '
         Me.mPlay.Name = "mPlay"
-        Me.mPlay.Size = New System.Drawing.Size(157, 22)
+        Me.mPlay.Size = New System.Drawing.Size(189, 22)
         Me.mPlay.Text = "&Play"
         Me.mPlay.ToolTipText = "Start Game"
         '
@@ -421,12 +422,13 @@ Partial Class MetroMed
         '
         Me.mNetPlay.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mNickname, Me.mServer, Me.mPort, Me.mGamekey, Me.mPassword, Me.mOnlinePlay})
         Me.mNetPlay.Name = "mNetPlay"
-        Me.mNetPlay.Size = New System.Drawing.Size(157, 22)
+        Me.mNetPlay.Size = New System.Drawing.Size(189, 22)
         Me.mNetPlay.Text = "&NetPlay"
         Me.mNetPlay.ToolTipText = "Start a Netplay session"
         '
         'mNickname
         '
+        Me.mNickname.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.mNickname.Name = "mNickname"
         Me.mNickname.Size = New System.Drawing.Size(200, 23)
         Me.mNickname.ToolTipText = "Imsert a Nick for Netplay session"
@@ -439,6 +441,7 @@ Partial Class MetroMed
         '
         'mPort
         '
+        Me.mPort.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.mPort.Name = "mPort"
         Me.mPort.Size = New System.Drawing.Size(200, 23)
         Me.mPort.Text = "4046"
@@ -446,12 +449,14 @@ Partial Class MetroMed
         '
         'mGamekey
         '
+        Me.mGamekey.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.mGamekey.Name = "mGamekey"
         Me.mGamekey.Size = New System.Drawing.Size(200, 23)
         Me.mGamekey.ToolTipText = "Input a required Gamekey"
         '
         'mPassword
         '
+        Me.mPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.mPassword.Name = "mPassword"
         Me.mPassword.Size = New System.Drawing.Size(200, 23)
         Me.mPassword.ToolTipText = "Input a required Password"
@@ -465,13 +470,13 @@ Partial Class MetroMed
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(154, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(186, 6)
         '
         'mGuiTheme
         '
         Me.mGuiTheme.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.cmbTheme, Me.cmbStyle})
         Me.mGuiTheme.Name = "mGuiTheme"
-        Me.mGuiTheme.Size = New System.Drawing.Size(157, 22)
+        Me.mGuiTheme.Size = New System.Drawing.Size(189, 22)
         Me.mGuiTheme.Text = "&Theme"
         Me.mGuiTheme.ToolTipText = "Change GUI theme and style"
         '
@@ -495,7 +500,7 @@ Partial Class MetroMed
         '
         Me.mCover.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mEffect, Me.mPerformance, Me.mSpeed})
         Me.mCover.Name = "mCover"
-        Me.mCover.Size = New System.Drawing.Size(157, 22)
+        Me.mCover.Size = New System.Drawing.Size(189, 22)
         Me.mCover.Text = "&Cover"
         Me.mCover.ToolTipText = "Select effect transictions for cover"
         '
@@ -525,7 +530,7 @@ Partial Class MetroMed
         '
         Me.mImport.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BoxartToolStripMenuItem, Me.SnapMovieToolStripMenuItem})
         Me.mImport.Name = "mImport"
-        Me.mImport.Size = New System.Drawing.Size(157, 22)
+        Me.mImport.Size = New System.Drawing.Size(189, 22)
         Me.mImport.Text = "&Import"
         Me.mImport.ToolTipText = "Import Boxart or Snap Movie from file"
         '
@@ -544,30 +549,37 @@ Partial Class MetroMed
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(154, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(186, 6)
         '
         'mInput
         '
         Me.mInput.Name = "mInput"
-        Me.mInput.Size = New System.Drawing.Size(157, 22)
+        Me.mInput.Size = New System.Drawing.Size(189, 22)
         Me.mInput.Text = "&Set Controller"
         '
         'mGuiMode
         '
         Me.mGuiMode.Name = "mGuiMode"
-        Me.mGuiMode.Size = New System.Drawing.Size(157, 22)
+        Me.mGuiMode.Size = New System.Drawing.Size(189, 22)
         Me.mGuiMode.Text = "&MedGui Reborn"
         Me.mGuiMode.ToolTipText = "Launch MedGui Reborn"
+        '
+        'mCSV
+        '
+        Me.mCSV.Name = "mCSV"
+        Me.mCSV.Size = New System.Drawing.Size(189, 22)
+        Me.mCSV.Text = "MedGuiR CS&V Creator"
+        Me.mCSV.ToolTipText = "Launch MedGuiR CSV Creator"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(154, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(186, 6)
         '
         'About
         '
         Me.About.Name = "About"
-        Me.About.Size = New System.Drawing.Size(157, 22)
+        Me.About.Size = New System.Drawing.Size(189, 22)
         Me.About.Text = "&About"
         Me.About.ToolTipText = "About MetroMed"
         '
@@ -1217,6 +1229,7 @@ Partial Class MetroMed
         Me.MetroToolTip1.SetToolTip(Me.MetroButton16, "  CSV Games List  ")
         Me.MetroButton16.UseSelectable = True
         Me.MetroButton16.UseStyleColors = True
+        Me.MetroButton16.UseVisualStyleBackColor = False
         '
         'MetroButton8
         '
@@ -1315,6 +1328,7 @@ Partial Class MetroMed
         Me.MetroToolTip1.SetToolTip(Me.MetroButton1, "  Nintendo Game Boy - Color  ")
         Me.MetroButton1.UseSelectable = True
         Me.MetroButton1.UseStyleColors = True
+        Me.MetroButton1.UseVisualStyleBackColor = False
         '
         'MetroButton11
         '
@@ -1413,6 +1427,7 @@ Partial Class MetroMed
         Me.MetroToolTip1.SetToolTip(Me.MetroButton17, "  Favoutite games  ")
         Me.MetroButton17.UseSelectable = True
         Me.MetroButton17.UseStyleColors = True
+        Me.MetroButton17.UseVisualStyleBackColor = False
         '
         'MetroButton18
         '
@@ -1427,6 +1442,7 @@ Partial Class MetroMed
         Me.MetroToolTip1.SetToolTip(Me.MetroButton18, "Apple II Folder")
         Me.MetroButton18.UseSelectable = True
         Me.MetroButton18.UseStyleColors = True
+        Me.MetroButton18.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel3
         '
@@ -1709,4 +1725,5 @@ Partial Class MetroMed
     Friend WithEvents mImport As ToolStripMenuItem
     Friend WithEvents BoxartToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SnapMovieToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mCSV As ToolStripMenuItem
 End Class

@@ -1164,6 +1164,14 @@ Public Class MetroMed
         End If
     End Sub
 
+    Private Sub mCSV_Click(sender As Object, e As EventArgs) Handles mCSV.Click
+        If File.Exists(Application.StartupPath & "\MedGuiR CSV Creator.exe") Then
+            Process.Start(Application.StartupPath & "\MedGuiR CSV Creator.exe")
+        Else
+            MetroMessageBox.Show(Me, "MedGuiR CSV Creator Not detected!", "MedGuiR CSV Creator Not detected...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
     Private Sub extractAnitag()
         Dim Singletag() As String
         For Each sLine In allItems

@@ -35,6 +35,7 @@ Module Preload
         MetroMed.mNetPlay.Image = (New Bitmap(MedExtra & "Resource\Gui\netplay.png"))
         MetroMed.mCover.Image = (New Bitmap(MedExtra & "Resource\Gui\cover.png"))
         MetroMed.mGuiMode.Image = (New Bitmap(MedExtra & "Resource\Gui\MedGuiR.png"))
+        MetroMed.mCSV.Image = (New Bitmap(MedExtra & "Resource\Gui\csv.png"))
         MetroMed.mServer.Image = (New Bitmap(MedExtra & "Resource\Gui\net.png"))
         MetroMed.mOnlinePlay.Image = (New Bitmap(MedExtra & "Resource\Gui\net.png"))
         MetroMed.mGuiTheme.Image = (New Bitmap(MedExtra & "Resource\Gui\theme.png"))
