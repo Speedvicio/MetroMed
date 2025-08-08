@@ -28,8 +28,8 @@ In addiction you must to prescan a rom folder by MedGui Reborn or by MedGuiR CSV
 
 ## Using Multimedia file:
 * By MedGui Reborn, scrape or download Boxart and games info
-* Redy to use Snap pack is downloadable [here](https://mega.nz/folder/57x1nLDa#sRBobh_R0g2P7I__KeG5ig)
-* Redy to use BoxArt pack is downloadable [here](https://mega.nz/folder/ZiwVSb5K#Gb0UE3Gh3bfQAJV7wXAQ2A)
+* Ready to use Snap pack is downloadable [here](https://mega.nz/folder/57x1nLDa#sRBobh_R0g2P7I__KeG5ig)
+* Ready to use BoxArt pack is downloadable [here](https://mega.nz/folder/ZiwVSb5K#Gb0UE3Gh3bfQAJV7wXAQ2A)
 * To play Video Snap, if you needed, You can download and use [K-Lite  Basic codec pack ](https://www.codecguide.com/download_k-lite_codec_pack_basic.htm)
 * A collection of **video game snap** are available [here](https://archive.org/search?query=subject%3A"Video+Game+Snap")
 
