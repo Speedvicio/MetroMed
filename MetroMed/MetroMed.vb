@@ -187,7 +187,8 @@ Public Class MetroMed
                 CheckBox3.BackgroundImage = (New Bitmap(MedExtra & "Resource\Gui\grid_white.png"))
         End Select
 
-        MetroGrid1.DefaultCellStyle.ForeColor = Color.FromName(cmbStyle.Text)
+        'MetroGrid1.DefaultCellStyle.ForeColor = Color.FromName(cmbStyle.Text)
+        'MetroGrid1.DefaultCellStyle.ForeColor = MetroGrid1.GridColor
 
         If CheckBox1.Checked = True Then
             CheckBox1.BackColor = Color.DimGray
@@ -725,7 +726,7 @@ Public Class MetroMed
         Dim extFile As String = Path.GetExtension(FileParameter)
 
         Select Case LCase(extFile)
-            Case ".zip", ".toc", ".cue", ".ccd", ".m3u"
+            Case ".zip", ".toc", ".cue", ".ccd", ".m3u", ".mai"
             Case Else
                 If existMedGuiR = True Then
                     Dim risp As String
@@ -733,8 +734,8 @@ Public Class MetroMed
                                                 "I can try to load it by MedGuiR", "Can't run the game...", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
                     If risp = vbOK Then
                         mGuiMode.PerformClick()
-                        Exit Sub
                     End If
+                    Exit Sub
                 Else
                     MetroMessageBox.Show(Me, UCase(Path.GetExtension(FileParameter)) & " file is not supported by mednafen", "Can't run the game...", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     Exit Sub
