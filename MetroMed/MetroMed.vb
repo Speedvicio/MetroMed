@@ -26,20 +26,6 @@ Public Class MetroMed
         TableLayoutPanel1.Dock = DockStyle.Fill
         Me.Text = "MetroMed " & Me.Tag
 
-        If File.Exists(Application.StartupPath & "\MedGuiR.exe") = False Then
-            existMedGuiR = False
-            mGuiMode.Enabled = False
-        Else
-            existMedGuiR = True
-            mGuiMode.Enabled = True
-        End If
-
-        If File.Exists(Application.StartupPath & "\MedGuiR CSV Creator.exe") = False Then
-            mCSV.Enabled = False
-        Else
-            mCSV.Enabled = True
-        End If
-
         AniBoxArt(0) = AnimationControl1
         AniBoxArt(1) = AnimationControl2
         AniBoxArt(2) = AnimationControl3
@@ -71,6 +57,26 @@ Public Class MetroMed
         If MedPath.Trim = "" Then
             Me.Close()
             Exit Sub
+        End If
+
+        If File.Exists(Application.StartupPath & "\MedGuiR.exe") = False Then
+            existMedGuiR = False
+            mGuiMode.Enabled = False
+        Else
+            existMedGuiR = True
+            mGuiMode.Enabled = True
+        End If
+
+        If File.Exists(Application.StartupPath & "\MedGuiR CSV Creator.exe") = False Then
+            mCSV.Enabled = False
+        Else
+            mCSV.Enabled = True
+        End If
+
+        If File.Exists(MedPath & "\mednafen.cfg") = False Then
+            mMednafen.Enabled = False
+        Else
+            mMednafen.Enabled = True
         End If
 
         MetroListServer_reload()
@@ -1216,6 +1222,14 @@ Public Class MetroMed
             Process.Start(Application.StartupPath & "\MedGuiR CSV Creator.exe")
         Else
             MetroMessageBox.Show(Me, "MedGuiR CSV Creator Not detected!", "MedGuiR CSV Creator Not detected...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
+        End If
+    End Sub
+
+    Private Sub mMednafen_Click(sender As Object, e As EventArgs) Handles mMednafen.Click
+        If File.Exists(MedPath & "\mednafen.cfg") Then
+            Process.Start("notepad.exe", MedPath & "\mednafen.cfg")
+        Else
+            MetroMessageBox.Show(Me, "Mednafen Config File Not detected!", "Config File Not detected...", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
         End If
     End Sub
 

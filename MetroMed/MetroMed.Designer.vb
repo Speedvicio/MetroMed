@@ -50,6 +50,7 @@ Partial Class MetroMed
         Me.mGamekey = New System.Windows.Forms.ToolStripTextBox()
         Me.mPassword = New System.Windows.Forms.ToolStripTextBox()
         Me.mOnlinePlay = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mMednafen = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.mGuiTheme = New System.Windows.Forms.ToolStripMenuItem()
         Me.cmbTheme = New System.Windows.Forms.ToolStripComboBox()
@@ -406,9 +407,9 @@ Partial Class MetroMed
         '
         Me.MetroContextMenu1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.MetroContextMenu1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.mImport, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.mCSV, Me.ToolStripSeparator2, Me.About})
+        Me.MetroContextMenu1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mPlay, Me.mNetPlay, Me.mMednafen, Me.ToolStripSeparator1, Me.mGuiTheme, Me.mCover, Me.mImport, Me.ToolStripSeparator3, Me.mInput, Me.mGuiMode, Me.mCSV, Me.ToolStripSeparator2, Me.About})
         Me.MetroContextMenu1.Name = "MetroContextMenu1"
-        Me.MetroContextMenu1.Size = New System.Drawing.Size(190, 220)
+        Me.MetroContextMenu1.Size = New System.Drawing.Size(190, 264)
         Me.MetroToolTip1.SetToolTip(Me.MetroContextMenu1, "Open MedPad Input Configurator")
         '
         'mPlay
@@ -466,6 +467,14 @@ Partial Class MetroMed
         Me.mOnlinePlay.Name = "mOnlinePlay"
         Me.mOnlinePlay.Size = New System.Drawing.Size(260, 22)
         Me.mOnlinePlay.Text = "&Online Play"
+        '
+        'mMednafen
+        '
+        Me.mMednafen.Name = "mMednafen"
+        Me.mMednafen.Size = New System.Drawing.Size(189, 22)
+        Me.mMednafen.Tag = ""
+        Me.mMednafen.Text = "&Mednafen Config."
+        Me.mMednafen.ToolTipText = "Open Mednafen Config. File with Notepad"
         '
         'ToolStripSeparator1
         '
@@ -561,7 +570,7 @@ Partial Class MetroMed
         '
         Me.mGuiMode.Name = "mGuiMode"
         Me.mGuiMode.Size = New System.Drawing.Size(189, 22)
-        Me.mGuiMode.Text = "&MedGui Reborn"
+        Me.mGuiMode.Text = "MedGui &Reborn"
         Me.mGuiMode.ToolTipText = "Launch MedGui Reborn"
         '
         'mCSV
@@ -1726,4 +1735,5 @@ Partial Class MetroMed
     Friend WithEvents BoxartToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SnapMovieToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents mCSV As ToolStripMenuItem
+    Friend WithEvents mMednafen As ToolStripMenuItem
 End Class
