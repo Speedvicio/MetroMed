@@ -1,7 +1,7 @@
 # MetroMed
-A GUI/Appendix for [MedGui Reborn](https://github.com/Speedvicio/MedGuiReborn) with Metro style
+A Standalone or GUI/Appendix for [MedGui Reborn](https://github.com/Speedvicio/MedGuiReborn) with Metro style
 
-**MetroMed** have all basic options to play a local or online session by [Mednafen](https://mednafen.github.io/) multi emulator, you can always start MedGui Reborn from it to perform advanced session.
+**MetroMed** have all basic options to play a local or online session by [Mednafen](https://mednafen.github.io/) multi emulator, if you use it like plugin, you can always start MedGui Reborn from it to perform advanced session.
 
 ## Screenshot
 <p align="center">
