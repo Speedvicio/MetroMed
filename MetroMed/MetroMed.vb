@@ -753,6 +753,9 @@ Public Class MetroMed
         Try
             With execute.StartInfo
                 .FileName = "mednafen"
+                .WindowStyle = ProcessWindowStyle.Hidden
+                .CreateNoWindow = False
+                .UseShellExecute = True
                 .Arguments = Arguments
                 .WorkingDirectory = MedPath
             End With
